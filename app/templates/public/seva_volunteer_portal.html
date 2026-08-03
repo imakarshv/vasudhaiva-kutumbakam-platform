@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEVA Volunteer Portal — Vasudhaiva Kutumbakam</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #0f2d1a;
+  --deep: #1a3d2b;
+  --moss: #2e6b47;
+  --leaf: #4a9c6a;
+  --sage: #8ab89a;
+  --mist: #d4e8db;
+  --cream: #faf8f3;
+  --parchment: #f0ead8;
+  --gold: #c8933a;
+  --gold-light: #e8c070;
+  --ink: #1c1c18;
+  --gray: #6b6b60;
+  --light-gray: #e8e4da;
+  --white: #ffffff;
+  --error: #c0392b;
+  --success: #27ae60;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(15,45,26,0.96);
+  backdrop-filter: blur(12px);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  border-bottom: 1px solid rgba(138,184,154,0.15);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo {
+  width: 32px; height: 32px;
+  background: var(--leaf);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+
+.nav-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--mist);
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage);
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.nav-links a:hover { color: var(--gold-light); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--forest);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(138,184,154,0.12);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ringPulse 6s ease-in-out infinite;
+}
+.ring:nth-child(1) { width: 400px; height: 400px; animation-delay: 0s; }
+.ring:nth-child(2) { width: 700px; height: 700px; animation-delay: 1s; }
+.ring:nth-child(3) { width: 1000px; height: 1000px; animation-delay: 2s; }
+.ring:nth-child(4) { width: 1300px; height: 1300px; animation-delay: 3s; }
+
+@keyframes ringPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.hero-tag {
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  position: relative;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(48px, 9vw, 110px);
+  line-height: 0.9;
+  color: var(--mist);
+  margin-bottom: 16px;
+  position: relative;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+
+.hero-title strong {
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: var(--sage);
+  margin-bottom: 48px;
+  max-width: 600px;
+  line-height: 1.6;
+  animation: fadeUp 0.8s ease 0.6s both;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeUp 0.8s ease 0.8s both;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--forest);
+  border: none;
+  padding: 14px 36px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--sage);
+  border: 1px solid rgba(138,184,154,0.4);
+  padding: 14px 36px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-outline:hover { border-color: var(--sage); color: var(--mist); }
+
+/* ── PROGRAMS SECTION ── */
+.section {
+  padding: 100px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--leaf);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: clamp(32px, 5vw, 56px);
+  color: var(--deep);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 16px;
+  color: var(--gray);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Programs grid */
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.program-card {
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  padding: 36px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.program-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--leaf), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.program-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+.program-card:hover::before { transform: scaleX(1); }
+.program-card.selected { border-color: var(--leaf); box-shadow: 0 0 0 2px var(--leaf); }
+.program-card.selected::before { transform: scaleX(1); }
+
+.card-icon {
+  font-size: 36px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.card-tag {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--leaf);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--deep);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.card-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.card-slots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.slot-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--leaf);
+  display: inline-block;
+}
+
+.slot-dot.full { background: var(--error); }
+
+.card-select-btn {
+  margin-top: 20px;
+  width: 100%;
+  background: var(--deep);
+  color: var(--mist);
+  border: none;
+  padding: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.card-select-btn:hover { background: var(--moss); }
+.card-select-btn.selected-btn { background: var(--leaf); }
+
+/* ── REGISTRATION SECTION ── */
+.reg-section {
+  background: var(--parchment);
+  padding: 100px 48px;
+}
+
+.reg-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.selected-program-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--deep);
+  color: var(--mist);
+  padding: 10px 20px;
+  font-size: 13px;
+  margin-bottom: 40px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.selected-program-badge strong { color: var(--gold-light); font-weight: 600; }
+
+/* Form */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group.full { grid-column: 1 / -1; }
+
+.form-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--deep);
+}
+
+.form-label span { color: var(--error); }
+
+.form-input, .form-select, .form-textarea {
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  padding: 14px 18px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  appearance: none;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--leaf);
+  box-shadow: 0 0 0 3px rgba(74,156,106,0.12);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.form-select-wrap {
+  position: relative;
+}
+.form-select-wrap::after {
+  content: '▾';
+  position: absolute;
+  right: 16px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray);
+  pointer-events: none;
+  font-size: 14px;
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px 14px;
+  border: 1px solid var(--light-gray);
+  background: var(--white);
+  transition: all 0.2s;
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.checkbox-item:hover { border-color: var(--sage); }
+.checkbox-item.checked { border-color: var(--leaf); background: rgba(74,156,106,0.06); color: var(--deep); }
+
+.checkbox-item input { display: none; }
+
+.checkbox-box {
+  width: 16px; height: 16px;
+  border: 2px solid var(--light-gray);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.checkbox-item.checked .checkbox-box {
+  background: var(--leaf);
+  border-color: var(--leaf);
+  color: white;
+  font-size: 10px;
+}
+
+.form-submit {
+  grid-column: 1 / -1;
+  background: var(--deep);
+  color: var(--mist);
+  border: none;
+  padding: 18px 48px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  margin-top: 16px;
+  justify-self: start;
+}
+.form-submit:hover { background: var(--moss); transform: translateY(-2px); }
+
+/* ── SUCCESS MESSAGE ── */
+.success-banner {
+  display: none;
+  background: linear-gradient(135deg, var(--deep), var(--moss));
+  color: var(--mist);
+  padding: 32px 40px;
+  margin-bottom: 32px;
+  text-align: center;
+  animation: fadeUp 0.5s ease;
+}
+.success-banner.show { display: block; }
+.success-banner h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: var(--gold-light);
+}
+.success-banner p { font-size: 15px; opacity: 0.85; }
+
+/* ── VOLUNTEERS LIST ── */
+.volunteers-section {
+  padding: 100px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.volunteers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.volunteer-count {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px;
+  font-weight: 700;
+  color: var(--leaf);
+  line-height: 1;
+}
+
+.volunteer-count-label {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+.volunteers-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--light-gray);
+  background: var(--white);
+}
+
+.volunteers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.volunteers-table th {
+  background: var(--deep);
+  color: var(--sage);
+  text-align: left;
+  padding: 14px 20px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.volunteers-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--light-gray);
+  color: var(--ink);
+  vertical-align: top;
+}
+
+.volunteers-table tr:last-child td { border-bottom: none; }
+.volunteers-table tbody tr:hover { background: rgba(74,156,106,0.04); }
+
+.program-tag-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(74,156,106,0.1);
+  color: var(--moss);
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 2px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 40px;
+}
+
+.empty-state p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--sage);
+  margin-top: 16px;
+}
+
+/* ── FEEDBACK SECTION ── */
+.feedback-section {
+  background: var(--forest);
+  padding: 100px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-section::before {
+  content: '';
+  position: absolute;
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  border: 1px solid rgba(138,184,154,0.06);
+  top: 50%; right: -200px;
+  transform: translateY(-50%);
+}
+
+.feedback-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.feedback-section .section-eyebrow { color: var(--gold); }
+.feedback-section .section-title { color: var(--mist); }
+.feedback-section .section-desc { color: rgba(212,232,219,0.65); }
+
+.feedback-section .form-label { color: var(--sage); }
+
+.feedback-section .form-input,
+.feedback-section .form-textarea {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(138,184,154,0.2);
+  color: var(--mist);
+}
+
+.feedback-section .form-input::placeholder,
+.feedback-section .form-textarea::placeholder { color: rgba(138,184,154,0.4); }
+
+.feedback-section .form-input:focus,
+.feedback-section .form-textarea:focus {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(138,184,154,0.1);
+}
+
+.feedback-section .form-submit {
+  background: var(--gold);
+  color: var(--forest);
+}
+.feedback-section .form-submit:hover { background: var(--gold-light); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--forest);
+  border-top: 1px solid rgba(138,184,154,0.1);
+  padding: 40px 48px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(138,184,154,0.4);
+}
+
+footer strong { color: var(--sage); }
+
+/* ── MODAL VOLUNTEER DETAILS ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,25,15,0.85);
+  backdrop-filter: blur(6px);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--cream);
+  max-width: 600px;
+  width: 100%;
+  padding: 48px;
+  position: relative;
+  animation: fadeUp 0.3s ease;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  background: none; border: none;
+  font-size: 24px; color: var(--gray);
+  cursor: pointer; line-height: 1;
+}
+
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--deep);
+  margin-bottom: 24px;
+}
+
+.detail-row {
+  display: flex;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--light-gray);
+  font-size: 14px;
+}
+
+.detail-label {
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--gray);
+  min-width: 120px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding-top: 2px;
+}
+
+.detail-value { color: var(--ink); line-height: 1.5; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── TABS ── */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--light-gray);
+  margin-bottom: 48px;
+}
+
+.tab-btn {
+  padding: 14px 28px;
+  border: none;
+  background: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover { color: var(--deep); }
+.tab-btn.active { color: var(--leaf); border-bottom-color: var(--leaf); }
+
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .section, .volunteers-section { padding: 60px 24px; }
+  .reg-section { padding: 60px 24px; }
+  .feedback-section { padding: 60px 24px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-group.full { grid-column: 1; }
+  footer { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">🌿</div>
+    <span class="nav-name">SEVA — Vasudhaiva Kutumbakam</span>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="scrollTo('programs')">Programs</a></li>
+    <li><a onclick="scrollTo('register')">Join</a></li>
+    <li><a onclick="scrollTo('volunteers')">Volunteers</a></li>
+    <li><a onclick="scrollTo('feedback')">Feedback</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-rings">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+  <p class="hero-tag">Socio-Environmental Visionary Activities</p>
+  <h1 class="hero-title">Join the<br><strong>SEVA Movement</strong></h1>
+  <p class="hero-sub">Be a light in the darkness. Volunteer with us to plant trees, educate youth, and build a better world — one act of giving at a time.</p>
+  <div class="hero-cta">
+    <button class="btn-primary" onclick="scrollTo('register')">Register as Volunteer</button>
+    <button class="btn-outline" onclick="scrollTo('programs')">Explore Programs</button>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-eyebrow">Our Initiatives</p>
+      <h2 class="section-title">SEVA Programs</h2>
+      <p class="section-desc">Choose a program to volunteer with. Each initiative carries a mission rooted in the spirit of Vasudhaiva Kutumbakam.</p>
+    </div>
+
+    <div class="programs-grid" id="programsGrid">
+
+      <div class="program-card" data-program="DHANYOSMI DHARANI" onclick="selectProgram(this)">
+        <span class="card-icon">🌱</span>
+        <div class="card-tag">Plantation Drive</div>
+        <div class="card-title">Dhanyosmi Dharani</div>
+        <div class="card-subtitle">"I am grateful, O Earth"</div>
+        <p class="card-desc">A large-scale community plantation drive to restore green cover, restore biodiversity, and reconnect people with the living earth. Plant trees. Nurture life. Give back.</p>
+        <div class="card-slots">
+          <span class="slot-dot" id="dot-0"></span>
+          <span id="slots-0">Loading slots...</span>
+        </div>
+        <button class="card-select-btn" id="btn-0">Select This Program</button>
+      </div>
+
+      <div class="program-card" data-program="JYOTHIRGAMAYA" onclick="selectProgram(this)">
+        <span class="card-icon">📚</span>
+        <div class="card-tag">Student Awareness</div>
+        <div class="card-title">Jyothirgamaya</div>
+        <div class="card-subtitle">"Lead me from darkness to light"</div>
+        <p class="card-desc">A student awareness program bringing environmental literacy, social responsibility, and values education to schools and colleges across communities.</p>
+        <div class="card-slots">
+          <span class="slot-dot" id="dot-1"></span>
+          <span id="slots-1">Loading slots...</span>
+        </div>
+        <button class="card-select-btn" id="btn-1">Select This Program</button>
+      </div>
+
+      <div class="program-card" data-program="VAYUSEVA" onclick="selectProgram(this)">
+        <span class="card-icon">🌬️</span>
+        <div class="card-tag">Clean Air Initiative</div>
+        <div class="card-title">Vayuseva</div>
+        <div class="card-subtitle">"Service to the air we breathe"</div>
+        <p class="card-desc">Community campaigns for air quality awareness, vehicle emission reduction advocacy, and urban green corridor development to improve the air our families breathe.</p>
+        <div class="card-slots">
+          <span class="slot-dot" id="dot-2"></span>
+          <span id="slots-2">Loading slots...</span>
+        </div>
+        <button class="card-select-btn" id="btn-2">Select This Program</button>
+      </div>
+
+      <div class="program-card" data-program="NADISEVA" onclick="selectProgram(this)">
+        <span class="card-icon">🏞️</span>
+        <div class="card-tag">River Conservation</div>
+        <div class="card-title">Nadiseva</div>
+        <div class="card-subtitle">"In service of our rivers"</div>
+        <p class="card-desc">River clean-up drives, awareness campaigns against water pollution, and community efforts to restore the sacred waterways that sustain all life around them.</p>
+        <div class="card-slots">
+          <span class="slot-dot" id="dot-3"></span>
+          <span id="slots-3">Loading slots...</span>
+        </div>
+        <button class="card-select-btn" id="btn-3">Select This Program</button>
+      </div>
+
+      <div class="program-card" data-program="KARUNAMAYAM" onclick="selectProgram(this)">
+        <span class="card-icon">🤝</span>
+        <div class="card-tag">Social Welfare</div>
+        <div class="card-title">Karunamayam</div>
+        <div class="card-subtitle">"Filled with compassion"</div>
+        <p class="card-desc">Support programs for the elderly, orphaned children, and marginalised communities — because the family of life includes every human being, especially the most vulnerable.</p>
+        <div class="card-slots">
+          <span class="slot-dot" id="dot-4"></span>
+          <span id="slots-4">Loading slots...</span>
+        </div>
+        <button class="card-select-btn" id="btn-4">Select This Program</button>
+      </div>
+
+      <div class="program-card" data-program="GENERAL VOLUNTEER" onclick="selectProgram(this)">
+        <span class="card-icon">⭐</span>
+        <div class="card-tag">Open Contribution</div>
+        <div class="card-title">General Volunteer</div>
+        <div class="card-subtitle">"Where you're needed most"</div>
+        <p class="card-desc">Not sure which program yet? Register as a general volunteer and our team will connect you to the right initiative based on your skills, expertise, and availability.</p>
+        <div class="card-slots">
+          <span class="slot-dot" id="dot-5"></span>
+          <span id="slots-5">Loading slots...</span>
+        </div>
+        <button class="card-select-btn" id="btn-5">Select This Program</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRATION -->
+<section class="reg-section" id="register">
+  <div class="reg-inner">
+
+    <div class="section-header" style="text-align:left; margin-bottom:40px;">
+      <p class="section-eyebrow">Volunteer Registration</p>
+      <h2 class="section-title" style="color:var(--deep);">Reserve Your Slot</h2>
+      <p class="section-desc" style="margin:0; text-align:left;">Fill in your details below. Our team will confirm your slot and reach out with next steps.</p>
+    </div>
+
+    <div id="selectedBadge" class="selected-program-badge" style="display:none;">
+      🌿 Selected Program: <strong id="selectedProgramName">—</strong>
+      <span onclick="clearSelectedProgram()" style="margin-left:12px;cursor:pointer;opacity:0.5;font-size:18px;line-height:1;">×</span>
+    </div>
+
+    <div id="regSuccess" class="success-banner">
+      <h3>🙏 Dhanyavaad — Thank You!</h3>
+      <p>Your volunteer slot has been registered. You are now part of the SEVA family. We will be in touch soon.</p>
+    </div>
+
+    <form id="regForm" onsubmit="submitRegistration(event)">
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label class="form-label">Full Name <span>*</span></label>
+          <input class="form-input" type="text" id="reg-name" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Phone Number <span>*</span></label>
+          <input class="form-input" type="tel" id="reg-phone" placeholder="+91 00000 00000" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address <span>*</span></label>
+          <input class="form-input" type="email" id="reg-email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Profession</label>
+          <input class="form-input" type="text" id="reg-profession" placeholder="e.g. Teacher, Engineer, Student...">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Area of Expertise</label>
+          <input class="form-input" type="text" id="reg-expertise" placeholder="e.g. Event Management, Teaching, Design...">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Date of Availability <span>*</span></label>
+          <input class="form-input" type="date" id="reg-date" required>
+        </div>
+
+        <div class="form-group full">
+          <label class="form-label">Interested In <span>*</span></label>
+          <div class="checkbox-group" id="interestGroup">
+            <label class="checkbox-item" onclick="toggleCheck(this)">
+              <input type="checkbox" value="DHANYOSMI DHARANI">
+              <span class="checkbox-box">✓</span>
+              🌱 Dhanyosmi Dharani
+            </label>
+            <label class="checkbox-item" onclick="toggleCheck(this)">
+              <input type="checkbox" value="JYOTHIRGAMAYA">
+              <span class="checkbox-box">✓</span>
+              📚 Jyothirgamaya
+            </label>
+            <label class="checkbox-item" onclick="toggleCheck(this)">
+              <input type="checkbox" value="VAYUSEVA">
+              <span class="checkbox-box">✓</span>
+              🌬️ Vayuseva
+            </label>
+            <label class="checkbox-item" onclick="toggleCheck(this)">
+              <input type="checkbox" value="NADISEVA">
+              <span class="checkbox-box">✓</span>
+              🏞️ Nadiseva
+            </label>
+            <label class="checkbox-item" onclick="toggleCheck(this)">
+              <input type="checkbox" value="KARUNAMAYAM">
+              <span class="checkbox-box">✓</span>
+              🤝 Karunamayam
+            </label>
+            <label class="checkbox-item" onclick="toggleCheck(this)">
+              <input type="checkbox" value="GENERAL VOLUNTEER">
+              <span class="checkbox-box">✓</span>
+              ⭐ General Volunteer
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label class="form-label">Your Opinion / Message</label>
+          <textarea class="form-textarea" id="reg-opinion" placeholder="Share your thoughts, motivation, or any specific ideas you'd like to contribute..."></textarea>
+        </div>
+
+        <div class="form-group full">
+          <button type="submit" class="form-submit">Register as Volunteer →</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- VOLUNTEERS LIST -->
+<section id="volunteers">
+  <div class="volunteers-section">
+    <div class="section-header" style="text-align:left;">
+      <p class="section-eyebrow">Our Family</p>
+    </div>
+
+    <div class="volunteers-header">
+      <div>
+        <div class="volunteer-count" id="volunteerCount">0</div>
+        <div class="volunteer-count-label">Registered Volunteers</div>
+      </div>
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="filterVolunteers('ALL', this)">All</button>
+        <button class="tab-btn" onclick="filterVolunteers('DHANYOSMI DHARANI', this)">🌱 Dhanyosmi</button>
+        <button class="tab-btn" onclick="filterVolunteers('JYOTHIRGAMAYA', this)">📚 Jyothirgamaya</button>
+        <button class="tab-btn" onclick="filterVolunteers('VAYUSEVA', this)">🌬️ Vayuseva</button>
+        <button class="tab-btn" onclick="filterVolunteers('NADISEVA', this)">🏞️ Nadiseva</button>
+        <button class="tab-btn" onclick="filterVolunteers('KARUNAMAYAM', this)">🤝 Karunamayam</button>
+      </div>
+    </div>
+
+    <div class="volunteers-table-wrap">
+      <table class="volunteers-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Program</th>
+            <th>Profession</th>
+            <th>Available On</th>
+            <th>Registered</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody id="volunteersBody">
+          <tr><td colspan="7">
+            <div class="empty-state">
+              <div style="font-size:48px;">🌱</div>
+              <p>Be the first volunteer to join the SEVA family.</p>
+            </div>
+          </td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FEEDBACK -->
+<section class="feedback-section" id="feedback">
+  <div class="feedback-inner">
+    <div class="section-header" style="text-align:left; margin-bottom:48px;">
+      <p class="section-eyebrow">Share Your Thoughts</p>
+      <h2 class="section-title">We Listen</h2>
+      <p class="section-desc" style="text-align:left; margin:0;">Every voice matters in this family. Share your ideas, suggestions, or encouragement with us.</p>
+    </div>
+
+    <div id="fbSuccess" class="success-banner" style="background:rgba(74,156,106,0.15); border:1px solid rgba(74,156,106,0.3);">
+      <h3>🙏 Thank You for Your Message!</h3>
+      <p>Your feedback has been received. It means the world to us.</p>
+    </div>
+
+    <form id="feedbackForm" onsubmit="submitFeedback(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" style="color:var(--sage);">Full Name <span>*</span></label>
+          <input class="form-input" type="text" id="fb-name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" style="color:var(--sage);">Phone Number</label>
+          <input class="form-input" type="tel" id="fb-phone" placeholder="+91 00000 00000">
+        </div>
+        <div class="form-group full">
+          <label class="form-label" style="color:var(--sage);">Email Address <span>*</span></label>
+          <input class="form-input" type="email" id="fb-email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group full">
+          <label class="form-label" style="color:var(--sage);">Your Message <span>*</span></label>
+          <textarea class="form-textarea" id="fb-message" placeholder="Share your thoughts, suggestions, or words of encouragement..." style="min-height:140px;" required></textarea>
+        </div>
+        <div class="form-group full">
+          <button type="submit" class="form-submit">Send Message →</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>SEVA — Vasudhaiva Kutumbakam</strong> &nbsp;|&nbsp; For a Better World &nbsp;|&nbsp; vkfbw2019@gmail.com</p>
+</footer>
+
+<!-- DETAIL MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalContent">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-title" id="modalName"></div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════
+const SLOT_LIMIT = 50;
+const programs = [
+  'DHANYOSMI DHARANI','JYOTHIRGAMAYA','VAYUSEVA','NADISEVA','KARUNAMAYAM','GENERAL VOLUNTEER'
+];
+let volunteers = [];
+let feedback = [];
+let selectedProgram = null;
+let filterProgram = 'ALL';
+
+// ════════════════════════════════════════
+// STORAGE
+// ════════════════════════════════════════
+async function loadData() {
+  try {
+    const r = await window.storage.get('seva-volunteers');
+    if (r) volunteers = JSON.parse(r.value);
+  } catch(e) { volunteers = []; }
+  try {
+    const r = await window.storage.get('seva-feedback');
+    if (r) feedback = JSON.parse(r.value);
+  } catch(e) { feedback = []; }
+  updateSlotCounts();
+  renderVolunteers();
+}
+
+async function saveVolunteers() {
+  try { await window.storage.set('seva-volunteers', JSON.stringify(volunteers)); } catch(e) {}
+}
+
+async function saveFeedback() {
+  try { await window.storage.set('seva-feedback', JSON.stringify(feedback)); } catch(e) {}
+}
+
+// ════════════════════════════════════════
+// SLOT COUNTS
+// ════════════════════════════════════════
+function getSlotCount(prog) {
+  return volunteers.filter(v => v.interests && v.interests.includes(prog)).length;
+}
+
+function updateSlotCounts() {
+  programs.forEach((prog, i) => {
+    const count = getSlotCount(prog);
+    const remaining = SLOT_LIMIT - count;
+    const el = document.getElementById('slots-' + i);
+    const dot = document.getElementById('dot-' + i);
+    if (el) {
+      if (remaining <= 0) {
+        el.textContent = 'Slots Full';
+        dot.classList.add('full');
+      } else if (remaining <= 10) {
+        el.textContent = `${remaining} slots remaining — filling fast!`;
+        dot.classList.remove('full');
+      } else {
+        el.textContent = `${count} enrolled · ${remaining} slots open`;
+        dot.classList.remove('full');
+      }
+    }
+  });
+}
+
+// ════════════════════════════════════════
+// PROGRAM SELECTION
+// ════════════════════════════════════════
+function selectProgram(card) {
+  const prog = card.dataset.program;
+  selectedProgram = prog;
+
+  document.querySelectorAll('.program-card').forEach((c, i) => {
+    c.classList.remove('selected');
+    document.getElementById('btn-' + i).classList.remove('selected-btn');
+    document.getElementById('btn-' + i).textContent = 'Select This Program';
+  });
+
+  card.classList.add('selected');
+  const idx = programs.indexOf(prog);
+  if (idx >= 0) {
+    document.getElementById('btn-' + idx).classList.add('selected-btn');
+    document.getElementById('btn-' + idx).textContent = '✓ Selected';
+  }
+
+  document.getElementById('selectedBadge').style.display = 'flex';
+  document.getElementById('selectedProgramName').textContent = prog;
+
+  // Pre-check the interest checkbox
+  document.querySelectorAll('#interestGroup .checkbox-item').forEach(item => {
+    const val = item.querySelector('input').value;
+    if (val === prog) {
+      item.classList.add('checked');
+      item.querySelector('input').checked = true;
+    }
+  });
+
+  scrollTo('register');
+}
+
+function clearSelectedProgram() {
+  selectedProgram = null;
+  document.getElementById('selectedBadge').style.display = 'none';
+  document.querySelectorAll('.program-card').forEach((c, i) => {
+    c.classList.remove('selected');
+    document.getElementById('btn-' + i).classList.remove('selected-btn');
+    document.getElementById('btn-' + i).textContent = 'Select This Program';
+  });
+}
+
+// ════════════════════════════════════════
+// CHECKBOX TOGGLE
+// ════════════════════════════════════════
+function toggleCheck(label) {
+  setTimeout(() => {
+    const cb = label.querySelector('input');
+    if (cb.checked) label.classList.add('checked');
+    else label.classList.remove('checked');
+  }, 0);
+}
+
+// ════════════════════════════════════════
+// REGISTRATION SUBMIT
+// ════════════════════════════════════════
+function submitRegistration(e) {
+  e.preventDefault();
+
+  const interests = [...document.querySelectorAll('#interestGroup input:checked')].map(cb => cb.value);
+  if (interests.length === 0) { alert('Please select at least one program you\'re interested in.'); return; }
+
+  const v = {
+    id: Date.now(),
+    name: document.getElementById('reg-name').value.trim(),
+    phone: document.getElementById('reg-phone').value.trim(),
+    email: document.getElementById('reg-email').value.trim(),
+    profession: document.getElementById('reg-profession').value.trim(),
+    expertise: document.getElementById('reg-expertise').value.trim(),
+    date: document.getElementById('reg-date').value,
+    interests,
+    opinion: document.getElementById('reg-opinion').value.trim(),
+    registeredAt: new Date().toISOString()
+  };
+
+  volunteers.push(v);
+  saveVolunteers();
+  updateSlotCounts();
+  renderVolunteers();
+
+  document.getElementById('regForm').reset();
+  document.querySelectorAll('#interestGroup .checkbox-item').forEach(i => i.classList.remove('checked'));
+  clearSelectedProgram();
+
+  const success = document.getElementById('regSuccess');
+  success.classList.add('show');
+  setTimeout(() => success.classList.remove('show'), 6000);
+
+  scrollTo('volunteers');
+}
+
+// ════════════════════════════════════════
+// RENDER VOLUNTEERS
+// ════════════════════════════════════════
+function renderVolunteers() {
+  const list = filterProgram === 'ALL'
+    ? volunteers
+    : volunteers.filter(v => v.interests && v.interests.includes(filterProgram));
+
+  document.getElementById('volunteerCount').textContent = volunteers.length;
+
+  const tbody = document.getElementById('volunteersBody');
+  if (list.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state">
+      <div style="font-size:48px;">🌱</div>
+      <p>${filterProgram === 'ALL' ? 'Be the first volunteer to join the SEVA family.' : 'No volunteers registered for this program yet.'}</p>
+    </div></td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = list.map((v, i) => `
+    <tr>
+      <td style="color:var(--sage);font-size:13px;">${i + 1}</td>
+      <td style="font-weight:500;">${v.name}</td>
+      <td>${v.interests.map(p => `<span class="program-tag-cell">${p}</span>`).join('<br>')}</td>
+      <td>${v.profession || '—'}</td>
+      <td>${v.date ? formatDate(v.date) : '—'}</td>
+      <td style="color:var(--gray);font-size:12px;">${formatDate(v.registeredAt, true)}</td>
+      <td><button onclick="openModal(${v.id})" style="background:none;border:1px solid var(--light-gray);padding:6px 14px;cursor:pointer;font-size:12px;font-family:Outfit;color:var(--moss);letter-spacing:0.05em;">View</button></td>
+    </tr>
+  `).join('');
+}
+
+function filterVolunteers(prog, btn) {
+  filterProgram = prog;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderVolunteers();
+}
+
+function formatDate(str, withTime) {
+  if (!str) return '—';
+  const d = new Date(str);
+  if (isNaN(d)) return str;
+  const date = d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+  if (!withTime) return date;
+  const time = d.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+  return `${date}<br><span style="color:var(--gray);font-size:12px;">${time}</span>`;
+}
+
+// ════════════════════════════════════════
+// MODAL
+// ════════════════════════════════════════
+function openModal(id) {
+  const v = volunteers.find(x => x.id === id);
+  if (!v) return;
+
+  document.getElementById('modalName').textContent = v.name;
+
+  const rows = [
+    ['Phone', v.phone || '—'],
+    ['Email', v.email || '—'],
+    ['Profession', v.profession || '—'],
+    ['Expertise', v.expertise || '—'],
+    ['Programs', v.interests.join(', ')],
+    ['Available On', v.date ? formatDate(v.date) : '—'],
+    ['Registered', formatDate(v.registeredAt, true)],
+    ['Opinion / Message', v.opinion || '—'],
+  ];
+
+  document.getElementById('modalBody').innerHTML = rows.map(([l, val]) => `
+    <div class="detail-row">
+      <span class="detail-label">${l}</span>
+      <span class="detail-value">${val}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('open');
+  }
+}
+
+// ════════════════════════════════════════
+// FEEDBACK SUBMIT
+// ════════════════════════════════════════
+function submitFeedback(e) {
+  e.preventDefault();
+
+  const fb = {
+    id: Date.now(),
+    name: document.getElementById('fb-name').value.trim(),
+    phone: document.getElementById('fb-phone').value.trim(),
+    email: document.getElementById('fb-email').value.trim(),
+    message: document.getElementById('fb-message').value.trim(),
+    submittedAt: new Date().toISOString()
+  };
+
+  feedback.push(fb);
+  saveFeedback();
+
+  document.getElementById('feedbackForm').reset();
+  const s = document.getElementById('fbSuccess');
+  s.classList.add('show');
+  setTimeout(() => s.classList.remove('show'), 6000);
+}
+
+// ════════════════════════════════════════
+// SCROLL HELPER
+// ════════════════════════════════════════
+function scrollTo(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════
+loadData();
+</script>
+</body>
+</html>
