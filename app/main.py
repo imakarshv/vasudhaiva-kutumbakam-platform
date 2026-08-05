@@ -1,21 +1,52 @@
-from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
-
-app = FastAPI(title="Vasudhaiva Kutumbakam")
-
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
-
-templates = Jinja2Templates(directory="app/templates")
-
-
-from fastapi import Request
-from fastapi.responses import HTMLResponse
-
-@app.get("/", response_class=HTMLResponse)
-async def home(request: Request):
+@app.get("/about", response_class=HTMLResponse)
+async def about(request: Request):
     return templates.TemplateResponse(
         request=request,
-        name="public/home.html",
+        name="public/about.html",
         context={}
-    ) 
+    )
+
+
+@app.get("/work", response_class=HTMLResponse)
+async def work(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="public/work.html",
+        context={}
+    )
+
+
+@app.get("/events", response_class=HTMLResponse)
+async def events(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="public/events.html",
+        context={}
+    )
+
+
+@app.get("/gallery", response_class=HTMLResponse)
+async def gallery(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="public/gallery.html",
+        context={}
+    )
+
+
+@app.get("/insights", response_class=HTMLResponse)
+async def insights(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="public/insights.html",
+        context={}
+    )
+
+
+@app.get("/contact", response_class=HTMLResponse)
+async def contact(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="public/contact.html",
+        context={}
+    )
