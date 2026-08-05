@@ -9,6 +9,13 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
 
 
-@app.get("/")
-def home():
-    return {"message": "Server is running!"}
+from fastapi import Request
+from fastapi.responses import HTMLResponse
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="public/home.html",
+        context={}
+    ) 
