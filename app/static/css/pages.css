@@ -1,0 +1,375 @@
+/* ==========================================
+   PAGE HERO
+========================================== */
+
+.page-hero{
+
+    background:
+    radial-gradient(circle at top right, rgba(74,156,106,.18), transparent 35%),
+    radial-gradient(circle at bottom left, rgba(138,184,154,.12), transparent 35%),
+    var(--forest);
+
+    min-height:65vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:160px 20px 100px;
+
+}
+
+.page-hero h1{
+
+    color:white;
+
+}
+
+.page-hero h1 em{
+
+    color:var(--sage);
+
+    font-style:italic;
+
+}
+
+.page-hero .hero-sub{
+
+    color:rgba(255,255,255,.82);
+
+    max-width:700px;
+
+    margin:30px auto 0;
+
+}
+
+
+/* ==========================================
+   PAGE CONTENT
+========================================== */
+
+.page-content{
+
+    background:white;
+
+}
+
+.page-content .container{
+
+    max-width:900px;
+
+}
+
+.page-content p{
+
+    font-size:1.15rem;
+
+    margin-bottom:24px;
+
+}
+
+
+/* ==========================================
+   MISSION & VISION
+========================================== */
+
+.mission-vision{
+
+    background:var(--parchment);
+
+    padding:100px 0;
+
+}
+
+.mission-vision .container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+.mission-card{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.mission-card h3{
+
+    line-height:1.6;
+
+}
+
+
+/* ==========================================
+   VALUES
+========================================== */
+
+.values-list{
+
+    list-style:none;
+
+    margin-top:40px;
+
+    display:grid;
+
+    gap:18px;
+
+}
+
+.values-list li{
+
+    background:var(--parchment);
+
+    padding:20px 25px;
+
+    border-radius:12px;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:1rem;
+
+}
+
+
+/* ==========================================
+   CTA
+========================================== */
+
+.support-section{
+
+    text-align:center;
+
+}
+/* ==========================================
+   WORK PAGE
+========================================== */
+
+.initiative-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.initiative-card{
+
+    background:white;
+
+    padding:40px 30px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.initiative-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.initiative-icon{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+.initiative-card h3{
+
+    margin-bottom:15px;
+
+}
+
+.initiative-card p{
+
+    margin-bottom:0;
+
+}
+/* ==========================================
+   EVENTS PAGE
+========================================== */
+
+.events-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.event-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.event-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.event-date{
+
+    color:var(--gold);
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+
+}
+/* ==========================================
+   GALLERY PAGE
+========================================== */
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+    margin-top:60px;
+
+}
+
+.gallery-item{
+
+    aspect-ratio:4/3;
+
+    background:var(--parchment);
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:"DM Sans",sans-serif;
+
+    color:var(--warm-gray);
+
+    font-weight:600;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.gallery-item:hover{
+
+    transform:translateY(-6px);
+
+}
+/* ==========================================
+   CONTACT PAGE
+========================================== */
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1.2fr;
+
+    gap:60px;
+
+    margin-top:60px;
+
+}
+
+.contact-info h3{
+
+    margin-top:30px;
+
+    margin-bottom:10px;
+
+}
+
+.contact-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.contact-form input,
+.contact-form textarea{
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--parchment);
+
+    font-size:1rem;
+
+    font-family:"DM Sans",sans-serif;
+
+}
+
+.contact-form textarea{
+
+    resize:vertical;
+
+}
+
+.contact-form button{
+
+    width:220px;
+
+}

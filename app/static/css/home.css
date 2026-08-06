@@ -1,0 +1,604 @@
+/* ==========================================
+   HERO
+========================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #163524 0%,
+        #1a3d2b 40%,
+        #214d36 100%
+    );
+
+    padding:170px 20px 120px;
+
+}
+
+/* Background Glow */
+
+.hero-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+}
+
+.hero-bg::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    border-radius:50%;
+
+    background:rgba(74,156,106,.18);
+
+    top:-220px;
+
+    right:-220px;
+
+    filter:blur(60px);
+
+}
+
+.hero-bg::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+
+    height:650px;
+
+    border-radius:50%;
+
+    background:rgba(138,184,154,.08);
+
+    bottom:-220px;
+
+    left:-220px;
+
+    filter:blur(60px);
+
+}
+
+.hero .container{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:900px;
+
+}
+
+/* Small Heading */
+
+.hero-eyebrow{
+
+    font-family:"DM Sans",sans-serif;
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+
+    color:var(--gold);
+
+    margin-bottom:28px;
+
+    font-size:.85rem;
+
+}
+
+/* Main Heading */
+
+.hero-title{
+
+    color:white;
+
+    line-height:1;
+
+    margin-bottom:20px;
+
+}
+
+.hero-title em{
+
+    color:var(--sage);
+
+    font-style:italic;
+
+    font-weight:600;
+
+}
+
+/* Sanskrit */
+
+.hero-sanskrit{
+
+    color:var(--mist);
+
+    font-size:1.35rem;
+
+    margin-bottom:35px;
+
+}
+
+/* Description */
+
+.hero-sub{
+
+    max-width:760px;
+
+    margin:0 auto;
+
+    color:rgba(255,255,255,.82);
+
+    font-size:1.25rem;
+
+    line-height:1.8;
+
+}
+
+/* Buttons */
+
+.hero-buttons{
+
+    margin-top:55px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+/* Scroll */
+
+.hero-scroll{
+
+    margin-top:70px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    color:rgba(255,255,255,.6);
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:.8rem;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+}
+
+.scroll-line{
+
+    width:2px;
+
+    height:70px;
+
+    background:rgba(255,255,255,.35);
+
+    margin-bottom:15px;
+
+    animation:scrollPulse 2s infinite;
+
+}
+
+/* ==========================================
+   ABOUT
+========================================== */
+
+.about-preview{
+
+    background:white;
+
+}
+
+.about-preview .container{
+
+    max-width:850px;
+
+    text-align:center;
+
+}
+
+.about-preview h2 em{
+
+    color:var(--leaf);
+
+    font-style:italic;
+
+}
+
+.about-text{
+
+    font-size:1.15rem;
+
+    line-height:1.9;
+
+    margin-bottom:28px;
+
+}
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+@keyframes scrollPulse{
+
+    0%{
+
+        opacity:.2;
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:translateY(10px);
+
+    }
+
+    100%{
+
+        opacity:.2;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   INITIATIVES
+========================================== */
+
+.initiatives{
+
+    background:var(--parchment);
+
+}
+
+.initiative-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.initiative-card{
+
+    text-align:center;
+
+}
+
+.initiative-icon{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+.initiative-card h3{
+
+    margin-bottom:15px;
+
+}
+
+.initiative-card p{
+
+    font-size:1rem;
+
+}
+
+/* ==========================================
+   IMPACT
+========================================== */
+
+.impact{
+
+    background:var(--forest);
+
+    text-align:center;
+
+}
+
+.impact .section-label{
+
+    color:var(--gold);
+
+}
+
+.impact h2{
+
+    color:white;
+
+    margin-bottom:60px;
+
+}
+
+.impact-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:30px;
+
+}
+
+.impact-card{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(8px);
+
+}
+
+.impact-card h3{
+
+    font-size:3rem;
+
+    color:var(--gold);
+
+    margin-bottom:12px;
+
+}
+
+.impact-card p{
+
+    color:var(--mist);
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:1rem;
+
+}
+
+/* ==========================================
+   EVENTS
+========================================== */
+
+.latest-events{
+
+    background:var(--cream);
+
+    text-align:center;
+
+}
+
+.events-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.event-card{
+
+    text-align:left;
+
+}
+
+.event-date{
+
+    font-family:"DM Sans",sans-serif;
+
+    color:var(--gold);
+
+    font-size:.9rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:15px;
+
+}
+
+.event-card h3{
+
+    margin-bottom:15px;
+
+}
+
+.event-card p{
+
+    font-size:1rem;
+
+}
+
+
+
+/* ==========================================
+   GALLERY
+========================================== */
+
+.gallery-preview{
+
+    background:var(--parchment);
+
+    text-align:center;
+
+}
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+    margin:60px 0;
+
+}
+
+.gallery-item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    height:250px;
+
+    background:linear-gradient(
+        135deg,
+        var(--sage),
+        var(--leaf)
+    );
+
+    color:white;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:1.1rem;
+
+    font-weight:600;
+
+}
+
+
+
+/* ==========================================
+   SUPPORT
+========================================== */
+
+.support-section{
+
+    background:var(--forest);
+
+    text-align:center;
+
+}
+
+.support-section h2{
+
+    color:white;
+
+}
+
+.support-text{
+
+    max-width:760px;
+
+    margin:0 auto 45px;
+
+    color:rgba(255,255,255,.82);
+
+}
+
+
+
+/* ==========================================
+   HOVER EFFECTS
+========================================== */
+
+.initiative-card:hover,
+.event-card:hover,
+.gallery-item:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.impact-card:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(255,255,255,.12);
+
+}
+
+
+
+/* ==========================================
+   SIMPLE FADE ANIMATION
+========================================== */
+
+.hero,
+.about-preview,
+.initiatives,
+.impact,
+.latest-events,
+.gallery-preview,
+.support-section{
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}

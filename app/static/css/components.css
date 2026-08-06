@@ -1,0 +1,235 @@
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn-primary,
+.btn-secondary,
+.support-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:16px 34px;
+
+    border-radius:999px;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-weight:600;
+
+    transition:.35s ease;
+
+}
+
+.btn-primary,
+.support-btn{
+
+    background:var(--leaf);
+
+    color:white;
+
+}
+
+.btn-primary:hover,
+.support-btn:hover{
+
+    background:var(--moss);
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow);
+
+}
+
+.btn-secondary{
+
+    border:2px solid rgba(255,255,255,.5);
+
+    color:white;
+
+}
+
+.btn-secondary:hover{
+
+    background:white;
+
+    color:var(--forest);
+
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:rgba(26,61,43,.92);
+
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.navbar-container{
+
+    height:82px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.logo-icon{
+
+    font-size:28px;
+
+}
+
+.logo-text{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:1.6rem;
+
+    color:var(--cream);
+
+    font-weight:700;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:38px;
+
+    list-style:none;
+
+}
+
+.nav-links a{
+
+    font-family:"DM Sans",sans-serif;
+
+    color:var(--mist);
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    position:relative;
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--gold);
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:white;
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.initiative-card,
+.impact-card,
+.event-card,
+.gallery-item{
+
+    background:white;
+
+    border-radius:var(--radius);
+
+    padding:35px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.initiative-card:hover,
+.event-card:hover,
+.gallery-item:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+    background:var(--forest);
+
+    color:white;
+
+    padding:80px 0;
+
+    text-align:center;
+
+}
+
+footer p{
+
+    color:var(--mist);
+
+}

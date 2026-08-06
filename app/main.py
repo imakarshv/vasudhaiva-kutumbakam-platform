@@ -1,3 +1,28 @@
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+
+app = FastAPI(title="Vasudhaiva Kutumbakam")
+
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+templates = Jinja2Templates(directory="app/templates")
+
+
+# ---------------- Home ---------------- #
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="public/home.html",
+        context={}
+    )
+
+
+# ---------------- About ---------------- #
+
 @app.get("/about", response_class=HTMLResponse)
 async def about(request: Request):
     return templates.TemplateResponse(
@@ -6,6 +31,8 @@ async def about(request: Request):
         context={}
     )
 
+
+# ---------------- Our Work ---------------- #
 
 @app.get("/work", response_class=HTMLResponse)
 async def work(request: Request):
@@ -16,6 +43,8 @@ async def work(request: Request):
     )
 
 
+# ---------------- Events ---------------- #
+
 @app.get("/events", response_class=HTMLResponse)
 async def events(request: Request):
     return templates.TemplateResponse(
@@ -24,6 +53,8 @@ async def events(request: Request):
         context={}
     )
 
+
+# ---------------- Gallery ---------------- #
 
 @app.get("/gallery", response_class=HTMLResponse)
 async def gallery(request: Request):
@@ -34,6 +65,8 @@ async def gallery(request: Request):
     )
 
 
+# ---------------- Insights ---------------- #
+
 @app.get("/insights", response_class=HTMLResponse)
 async def insights(request: Request):
     return templates.TemplateResponse(
@@ -43,10 +76,20 @@ async def insights(request: Request):
     )
 
 
+# ---------------- Contact ---------------- #
+
 @app.get("/contact", response_class=HTMLResponse)
 async def contact(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="public/contact.html",
+        context={}
+    )
+
+@app.get("/philosophy", response_class=HTMLResponse)
+async def philosophy(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="public/philosophy.html",
         context={}
     )
