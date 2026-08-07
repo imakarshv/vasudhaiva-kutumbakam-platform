@@ -226,20 +226,100 @@
    FOOTER
 ========================================== */
 
-footer{
+.footer{
 
     background:var(--forest);
 
     color:white;
 
-    padding:80px 0;
-
-    text-align:center;
+    padding:80px 0 0;
 
 }
 
-footer p{
+.footer-grid{
 
-    color:var(--mist);
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+    gap:50px;
+
+}
+
+.footer h3{
+
+    color:white;
+
+    margin-bottom:10px;
+
+}
+
+.footer-tagline{
+
+    color:var(--sage);
+
+    font-style:italic;
+
+    margin-bottom:20px;
+
+}
+
+.footer h4{
+
+    margin-bottom:20px;
+
+    color:white;
+
+}
+
+.footer ul{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.footer li{
+
+    margin-bottom:12px;
+
+    color:rgba(255,255,255,.8);
+
+}
+
+.footer a{
+
+    color:rgba(255,255,255,.8);
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.footer a:hover{
+
+    color:white;
+
+}
+
+.footer-bottom{
+
+    margin-top:60px;
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+.footer-bottom p{
+
+    margin:0;
+
+    color:rgba(255,255,255,.7);
 
 }
