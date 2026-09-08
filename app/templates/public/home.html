@@ -408,8 +408,6 @@ Home
         </p>
     </div>
 
-    <div class="mwe-arrow">→</div>
-
     <div class="mwe-content mwe-we-content">
         <h2>WE</h2>
         <span class="mwe-label">COLLECTIVE ACTION</span>
@@ -439,56 +437,78 @@ Home
 
     <div class="container">
 
-        <p class="section-label">
-            OUR PHILOSOPHY IN ACTION
-        </p>
+        <div class="initiatives-heading">
+            <p class="section-label">OUR PHILOSOPHY IN ACTION</p>
 
-        <h2>
-            How We Serve
-        </h2>
+            <h2>How We Serve</h2>
 
-        <div class="initiative-grid">
+            <p class="initiatives-intro">
+                From caring for the earth to nurturing people and strengthening
+                communities, our work turns shared responsibility into action.
+            </p>
+        </div>
 
-            <div class="initiative-card">
-                <img
-    src="{{ url_for('static', path='images/initiatives/dhanyosmi-dharani.jpg') }}"
-    alt="Dhanyosmi Dharani"
-    class="initiative-image">
-                <h3>Dhanyosmi Dharani</h3>
-                <p>
-                    Our environmental initiative dedicated to tree plantation,
-        ecological restoration, and nurturing a greener future
-        through collective action.
+        <div class="initiative-list">
 
-                </p>
+        <article class="initiative-story">
+
+            <div class="initiative-story-image">
+            <img
+                src="{{ url_for('static', path='images/initiatives/dhanyosmi-dharani.jpg') }}"
+                alt="Dhanyosmi Dharani">
             </div>
 
-            <div class="initiative-card">
-                <img
-    src="{{ url_for('static', path='images/initiatives/jyothirgamaya.jpg') }}"
-    alt="Jyothirgamaya"
-    class="initiative-image">
-                <h3>Jyothirgamaya</h3>
-                <p>
-                    Inspiring young minds through educational activities,
-        mentorship, school and orphanage visits, and meaningful
-        experiences that encourage learning and confidence.
-                </p>
+            <div class="initiative-story-content">
+
+            <span class="initiative-number">01</span>
+
+            <p class="initiative-category">
+                ENVIRONMENT
+            </p>
+
+            <h3>Dhanyosmi Dharani</h3>
+
+            <div class="initiative-line"></div>
+
+            <p class="initiative-description">
+                Our environmental initiative dedicated to tree
+                plantation, ecological restoration, and nurturing
+                a greener future through collective action.
+            </p>
+
             </div>
 
-            <div class="initiative-card">
-                <img
-    src="{{ url_for('static', path='images/initiatives/community-outreach.jpg') }}"
-    alt="Community Outreach"
-    class="initiative-image">
-                <h3>Community Outreach</h3>
-                <p>
-                    Guided by our philosophy, we serve wherever help is needed from blood donation camps and old age home visits to animal
-        welfare, public service, awareness campaigns, and community-led
-        initiatives.
-                </p>
+            </article>
+
+            <article class="initiative-story initiative-story-reverse">
+
+            <div class="initiative-story-image">
+            <img
+                src="{{ url_for('static', path='images/initiatives/jyothirgamaya.jpg') }}"
+                alt="Jyothirgamaya">
             </div>
 
+            <div class="initiative-story-content">
+
+            <span class="initiative-number">02</span>
+
+            <p class="initiative-category">
+                EDUCATION
+            </p>
+
+            <h3>Jyothirgamaya</h3>
+
+            <div class="initiative-line"></div>
+
+            <p class="initiative-description">
+                Inspiring young minds through educational activities,
+                mentorship, school and orphanage visits, and meaningful
+                experiences that encourage learning and confidence.
+            </p>
+
+            </div>
+
+            </article>
 
         </div>
 
