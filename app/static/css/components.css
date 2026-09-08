@@ -65,24 +65,19 @@
    NAVBAR
 ========================================== */
 
-.navbar{
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 
-    position:fixed;
+    background: rgba(4, 25, 14, 0.38);
 
-    top:0;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 
-    left:0;
-
-    width:100%;
-
-    z-index:1000;
-
-    background:rgba(26,61,43,.92);
-
-    backdrop-filter:blur(14px);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
+    border-bottom: 1px solid rgba(184, 163, 84, 0.15);
 }
 
 .navbar-container{

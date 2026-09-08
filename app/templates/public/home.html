@@ -8,131 +8,430 @@ Home
 
 <section class="hero">
 
-    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
 
-    <div class="container">
+    <div class="hero-container">
 
-        <p class="hero-eyebrow">
-    AN ANCIENT WISDOM FOR A MODERN WORLD
-</p>
+        <!-- LEFT -->
+        <div class="hero-content">
 
-<h1 class="hero-title">
-    Vasudhaiva
-    <br>
-    <em>Kutumbakam</em>
-</h1>
+            
 
-<p class="hero-tagline">
-    For a Better World
-</p>
+            <h1 class="hero-title">
+                ONE EARTH.<br>
+                ONE FAMILY.<br>
+                <span>ONE RESPONSIBILITY.</span>
+            </h1>
 
-<p class="hero-sanskrit">
-    वसुधैव कुटुम्बकम्
-</p>
+            <p class="hero-tagline">
+                Give. Do. Share.
+            </p>
 
-<p class="hero-sub">
+            <p class="hero-description">
+                Together, let us build a world of harmony,
+                where people and nature thrive as one family.
+            </p>
 
-    The entire world is one family. A four-word philosophy that holds the answer to our most pressing crises - if only we remember it.
+            <div class="hero-buttons">
 
-</p>
+                <a href="/about" class="btn-primary">
+                    OUR PURPOSE
+                </a>
 
-<div class="hero-buttons">
+                <a href="/contact" class="btn-secondary">
+                    BE PART OF IT
+                </a>
 
-    <a href="/work" class="btn-primary">
-        Explore Our Work
-    </a>
-
-    <a href="/contact" class="btn-secondary">
-        Join Our Mission
-    </a>
-
-</div>
-
-        <div class="hero-scroll">
-
-            <div class="scroll-line"></div>
-
-            <span>Scroll Down</span>
+            </div>
 
         </div>
 
+
+        <!-- CENTRE : CIRCLE OF LIFE -->
+        <div class="circle-life">
+            
+
+            <div class="circle-orbit orbit-outer"></div>
+            <div class="circle-orbit orbit-middle"></div>
+
+            <!-- PHOTO WHEEL -->
+            <div class="circle-images">
+
+    <svg class="photo-wheel" viewBox="0 0 500 500">
+
+        <defs>
+
+    <clipPath id="slice1">
+        <path d="M250 250 L250 0 A248 248 0 0 1 426.78 73.22 Z"/>
+    </clipPath>
+
+    <clipPath id="slice2">
+        <path d="M250 250 L426.78 73.22 A248 248 0 0 1 500 250 Z"/>
+    </clipPath>
+
+    <clipPath id="slice3">
+        <path d="M250 250 L500 250 A248 248 0 0 1 426.78 426.78 Z"/>
+    </clipPath>
+
+    <clipPath id="slice4">
+        <path d="M250 250 L426.78 426.78 A248 248 0 0 1 250 500 Z"/>
+    </clipPath>
+
+    <clipPath id="slice5">
+        <path d="M250 250 L250 500 A248 248 0 0 1 73.22 426.78 Z"/>
+    </clipPath>
+
+    <clipPath id="slice6">
+        <path d="M250 250 L73.22 426.78 A248 248 0 0 1 0 250 Z"/>
+    </clipPath>
+
+    <clipPath id="slice7">
+        <path d="M250 250 L0 250 A248 248 0 0 1 73.22 73.22 Z"/>
+    </clipPath>
+
+    <clipPath id="slice8">
+        <path d="M250 250 L73.22 73.22 A248 248 0 0 1 250 0 Z"/>
+    </clipPath>
+
+</defs>
+
+
+        <!-- 1 -->
+        <image
+            href="{{ url_for('static', path='images/ngocircle/tree.jpg') }}"
+            x="0"
+            y="0"
+            width="500"
+            height="500"
+            preserveAspectRatio="xMidYMid slice"
+            clip-path="url(#slice1)"
+        />
+
+        <!-- 2 -->
+        <image
+            href="{{ url_for('static', path='images/ngocircle/planting.jpg') }}"
+            x="0"
+            y="0"
+            width="500"
+            height="500"
+            preserveAspectRatio="xMidYMid slice"
+            clip-path="url(#slice2)"
+        />
+
+        <!-- 3 -->
+        <image
+            href="{{ url_for('static', path='images/ngocircle/drawing.jpg') }}"
+            x="0"
+            y="0"
+            width="500"
+            height="500"
+            preserveAspectRatio="xMidYMid slice"
+            clip-path="url(#slice3)"
+        />
+
+        <!-- 4 -->
+        <image
+            href="{{ url_for('static', path='images/ngocircle/animal.jpg') }}"
+            x="0"
+            y="0"
+            width="500"
+            height="500"
+            preserveAspectRatio="xMidYMid slice"
+            clip-path="url(#slice4)"
+        />
+
+        <!-- 5 -->
+        <image
+            href="{{ url_for('static', path='images/ngocircle/earth.jpg') }}"
+            x="0"
+            y="0"
+            width="500"
+            height="500"
+            preserveAspectRatio="xMidYMid slice"
+            clip-path="url(#slice5)"
+        />
+
+        <!-- 6 -->
+        <image
+            href="{{ url_for('static', path='images/ngocircle/community.jpg') }}"
+            x="0"
+            y="0"
+            width="500"
+            height="500"
+            preserveAspectRatio="xMidYMid slice"
+            clip-path="url(#slice6)"
+        />
+
+        <!-- 7 -->
+        <image
+            href="{{ url_for('static', path='images/ngocircle/people.jpg') }}"
+            x="0"
+            y="0"
+            width="500"
+            height="500"
+            preserveAspectRatio="xMidYMid slice"
+            clip-path="url(#slice7)"
+        />
+
+        <!-- 8 -->
+        <image
+            href="{{ url_for('static', path='images/ngocircle/water.jpg') }}"
+            x="0"
+            y="0"
+            width="500"
+            height="500"
+            preserveAspectRatio="xMidYMid slice"
+            clip-path="url(#slice8)"
+        />
+
+    </svg>
+
+</div>
+
+
+            <!-- CENTRE -->
+            <div class="circle-center">
+
+                <div class="circle-logo">
+                    <img
+        src="{{ url_for('static', path='images/logo.png') }}"
+        alt="Vasudhaiva Kutumbakam"
+        class="logo-image"
+    >
+                </div>
+
+                <h2>
+                    VASUDHAIVA<br>
+                    KUTUMBAKAM
+                </h2>
+
+                <p>
+                    (For a Better World)
+                </p>
+
+            </div>
+
+
+        <!-- RIGHT -->
+
+
+    </div>
+    <div class="hero-side-text">
+    
+        वसुधैव कुटुम्बकम्
+    </div>
+    
+    <div class="hero-ticker">
+    <div class="hero-ticker-track">
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+        <span>वसुधैव कुटुम्बकम्</span>
+    </div>
     </div>
 
+
 </section>
-<section class="about-preview">
+<section class="give-do-share">
 
     <div class="container">
 
-        <p class="section-label">
-            WHO WE ARE
-        </p>
+        <!-- SECTION INTRO -->
+        <div class="gds-intro">
 
-        <h2>
+            <h2>
+                Don't Wait For
+                <br>
+                <em>Someone Else.</em>
+            </h2>
 
-            Inspired by
-            <br>
+            <p class="gds-lead">
+                Be the change.
+            </p>
 
-            <em>One World, One Family</em>
+            <p class="gds-description">
+                Give what you can. Do what you can.
+                Share what you have.
+            </p>
 
-        </h2>
+            <a href="/contact" class="btn-primary">
+                JOIN OUR JOURNEY
+            </a>
 
-        <p class="about-text">
+        </div>
 
-            Vasudhaiva Kutumbakam – For a Better World is a community-driven
-    initiative inspired by the timeless Indian philosophy that the
-    entire world is one family. We believe that lasting change begins
-    with compassion, collective responsibility, and meaningful action.
 
-        </p>
+        <!-- THREE ACTIONS -->
+        <div class="gds-actions">
 
-        <p class="about-text">
+            <!-- GIVE -->
+            <div class="gds-card">
 
-            From protecting the environment through tree plantation drives
-    to organizing blood donation camps, supporting orphanages,
-    and visiting old age homes, every initiative reflects our
-    commitment to creating a healthier, kinder, and more
-    sustainable society.
+                <div class="gds-image">
+                    <img
+                        src="{{ url_for('static', path='images/mask/planting.png') }}"
+                        alt="Giving through tree planting">
+                </div>
 
-        </p>
+                <h3>GIVE</h3>
 
-        <a href="/about" class="btn-primary">
+                <p>
+                    Give what you can.
+                    Give resources.
+                    Give opportunities.
+                </p>
 
-            Learn More
+            </div>
 
-        </a>
-        <div class="mission-grid">
 
-    <div class="mission-card">
+            <!-- DO -->
+            <div class="gds-card">
 
-        <h3>Our Mission</h3>
+                <div class="gds-image">
+                    <img
+                        src="{{ url_for('static', path='images/ngocircle/community.jpg') }}"
+                        alt="Community action">
+                </div>
 
+                <h3>DO</h3>
+
+                <p>
+                    Act. Restore. Create.
+                    Protect what matters.
+                </p>
+
+            </div>
+
+
+            <!-- SHARE -->
+            <div class="gds-card">
+
+                <div class="gds-image">
+                    <img
+                        src="{{ url_for('static', path='images/ngocircle/people.jpg') }}"
+                        alt="Sharing with the community">
+                </div>
+
+                <h3>SHARE</h3>
+
+                <p>
+                    Share knowledge.
+                    Share responsibility.
+                    Share with others.
+                </p>
+
+            </div>
+
+        </div>
+        <div class="gds-philosophy">
+
+    <div class="gds-principle">
+        <span class="gds-icon">♧</span>
         <p>
-
-            To inspire and unite individuals in creating positive
-            social and environmental impact through service,
-            sustainability, and community participation.
-
+            <strong>Not Charity.</strong>
+            Only Solidarity.
         </p>
-
     </div>
 
-    <div class="mission-card">
-
-        <h3>Our Vision</h3>
-
+    <div class="gds-principle">
+        <span class="gds-icon">♧</span>
         <p>
-
-            A world where every individual recognizes their
-            responsibility towards nature and humanity,
-            living by the philosophy of
-            Vasudhaiva Kutumbakam—The World is One Family.
-
+            <strong>Not Dependence.</strong>
+            Only Self-Reliance.
         </p>
+    </div>
 
+    <div class="gds-principle">
+        <span class="gds-icon">♧</span>
+        <p>
+            <strong>Not For Someone.</strong>
+            For Everyone.
+        </p>
+    </div>
+
+    <div class="gds-principle">
+        <span class="gds-icon">◷</span>
+        <p>
+            <strong>Not Tomorrow.</strong>
+            Today.
+        </p>
     </div>
 
 </div>
 
+    </div>
+    
+
+</section>
+<section class="me-we-earth">
+
+    <div class="mwe-image"></div>
+
+    <div class="mwe-content mwe-me-content">
+        <h2>ME</h2>
+        <span class="mwe-label">INDIVIDUAL RESPONSIBILITY</span>
+        <p>
+            Responsibility begins with me.<br>
+            Awareness. Discipline.<br>
+            Self-reliance.
+        </p>
+    </div>
+
+    <div class="mwe-arrow">→</div>
+
+    <div class="mwe-content mwe-we-content">
+        <h2>WE</h2>
+        <span class="mwe-label">COLLECTIVE ACTION</span>
+
+        <p>
+            Together, we build strong<br>
+            communities.<br>
+            Cooperate. Support.<br>
+            Share. Grow.
+        </p>
+    </div>
+
+    <div class="mwe-content mwe-earth-content">
+        <h2>EARTH</h2>
+        <span class="mwe-label">OUR SHARED HOME</span>
+
+        <p>
+            We protect what<br>
+            sustains us all.<br>
+            Nature. Resources.<br>
+            Future Generations.
+        </p>
     </div>
 
 </section>

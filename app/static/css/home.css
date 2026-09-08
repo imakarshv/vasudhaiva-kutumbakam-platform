@@ -1,240 +1,796 @@
 /* ==========================================
-   HERO
+   HERO — CIRCLE OF LIFE
 ========================================== */
 
-.hero{
+.hero {
+    min-height: 730px;
+    position: relative;
+    overflow: hidden;
 
-    min-height:100vh;
+    display: flex;
+    align-items: center;
 
-    display:flex;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 22, 13, .94) 0%,
+            rgba(5, 30, 17, .82) 45%,
+            rgba(4, 25, 14, .78) 100%
+        ),
+        url("/static/images/hero/forest.jpg");
 
-    align-items:center;
+    background-size: cover;
+    background-position: center;
 
-    justify-content:center;
+    color: #f3f0df;
 
-    text-align:center;
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:linear-gradient(
-        135deg,
-        #163524 0%,
-        #1a3d2b 40%,
-        #214d36 100%
-    );
-
-    padding:120px 20px 120px;
-
+    padding: 55px 35px 45px;
 }
 
-/* Background Glow */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
 
-.hero-bg{
+    background:
+        radial-gradient(
+            circle at 52% 50%,
+            rgba(105, 137, 70, .13),
+            transparent 38%
+        );
 
-    position:absolute;
-
-    inset:0;
-
-    overflow:hidden;
-
+    pointer-events: none;
 }
 
-.hero-bg::before{
 
-    content:"";
+/* ==========================================
+   3 COLUMN HERO
+========================================== */
 
-    position:absolute;
+.hero-container {
+    width: 100%;
+    max-width: 1420px;
+    margin: 0 auto;
 
-    width:700px;
+    position: relative;
+    z-index: 2;
 
-    height:700px;
+    display: grid;
 
-    border-radius:50%;
+    grid-template-columns:
+        1.05fr
+        1.15fr
+        .65fr;
 
-    background:rgba(74,156,106,.18);
+    align-items: center;
 
-    top:-220px;
-
-    right:-220px;
-
-    filter:blur(60px);
-
+    gap: 15px;
 }
 
-.hero-bg::after{
 
-    content:"";
+/* ==========================================
+   LEFT CONTENT
+========================================== */
 
-    position:absolute;
-
-    width:650px;
-
-    height:650px;
-
-    border-radius:50%;
-
-    background:rgba(138,184,154,.08);
-
-    bottom:-220px;
-
-    left:-220px;
-
-    filter:blur(60px);
-
+.hero-content {
+    position: relative;
+    z-index: 3;
 }
 
-.hero .container{
+.hero-eyebrow {
+    margin: 0 0 24px;
 
-    position:relative;
+    font-family: "DM Sans", sans-serif;
 
-    z-index:2;
+    font-size: .68rem;
+    font-weight: 700;
 
-    max-width:900px;
+    letter-spacing: 5px;
 
+    color: #b8a354;
+
+    text-transform: uppercase;
 }
 
-/* Small Heading */
+.hero-title {
+    margin: 0;
 
-.hero-eyebrow{
+    font-size: clamp(3rem, 4.1vw, 4.5rem);
 
-    font-family:"DM Sans",sans-serif;
+    line-height: .91;
 
-    text-transform:uppercase;
+    letter-spacing: -2px;
 
-    letter-spacing:4px;
+    color: #f4f1e4;
 
-    color:var(--gold);
-
-    margin-bottom:28px;
-
-    font-size:.85rem;
-
+    white-space: nowrap;
 }
 
-/* Main Heading */
-
-.hero-title{
-
-    color:white;
-
-    line-height:1;
-
-    margin-bottom:20px;
-
+.hero-title span {
+    color: #82a86d;
 }
 
-.hero-title em{
+.hero-tagline {
+    margin: 25px 0 10px;
 
-    color:var(--sage);
+    font-family: "DM Sans", sans-serif;
 
-    font-style:italic;
+    font-size: 1.12rem;
 
-    font-weight:600;
+    font-weight: 700;
 
+    letter-spacing: .5px;
+
+    color: #c0a44d;
 }
 
-.hero-tagline{
+.hero-description {
+    max-width: 490px;
 
-    margin-top:10px;
+    margin: 0;
 
-    margin-bottom:25px;
+    font-family: Georgia, serif;
 
-    font-family:"DM Sans",sans-serif;
+    font-size: .91rem;
 
-    font-size:1.15rem;
+    line-height: 1.55;
 
-    font-style:italic;
-
-    font-weight:500;
-
-    color:var(--gold);
-
-    letter-spacing:1px;
-
+    color: rgba(255,255,255,.82);
 }
 
-/* Sanskrit */
+.hero-side-text {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
 
-.hero-sanskrit{
-
-    color:var(--mist);
-
-    font-size:1.35rem;
-
-    margin-bottom:30px;
-
+    font-family: "DM Sans", sans-serif;
+    font-size: .90rem;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    color: rgba(243,240,223,.65);
+    white-space: nowrap;
 }
 
-/* Description */
+.hero-ticker {
+    position: absolute;
+    bottom: -145px;
+    left: -50px;   
+    width: 200%;
+    height: 40px;
+    overflow: hidden;
+    z-index: 5;
 
-.hero-sub{
+    display: flex;
+    align-items: center;
 
-    max-width:1000px;
+    background: rgba(5, 30, 17, .55);
+    border-top: 1px solid rgba(192, 164, 77, .25);
+}
+
+.hero-ticker-track {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+
+    animation: heroTicker 70s linear infinite;
+}
+
+.hero-ticker-track span {
+    flex-shrink: 0;
+    padding: 0 35px;
+
+    color: #c0a44d;
+    font-family: "DM Sans", sans-serif;
+    font-size: .65rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+@keyframes heroTicker {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+}
+
+.hero-buttons .btn-primary,
+.hero-buttons .btn-secondary {
+    min-width: 118px;
+
+    padding: 9px 16px;
+
+    text-align: center;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: .63rem;
+
+    font-weight: 700;
+
+    letter-spacing: .7px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   CIRCLE OF LIFE
+========================================== */
+
+.circle-life {
+    width: min(430px, 34vw);
+
+    aspect-ratio: 1;
+
+    position: relative;
 
     margin: 0 auto;
 
-    color:rgba(255,255,255,.82);
+    transform: translateX(100px);
+}
 
-    font-size:1.25rem;
 
-    line-height:1.8;
+/* Outer orbit */
+
+.circle-orbit {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.orbit-outer {
+    inset: 1%;
+
+    border: 1px solid rgba(184,163,84,.52);
+}
+
+.orbit-middle {
+    inset: 9%;
+
+    border: 1px dashed rgba(184,163,84,.32);
+}
+
+
+/* ==========================================
+   PHOTOGRAPHIC CIRCLE
+========================================== */
+
+/* ==========================================
+   CIRCLE OF LIFE — PHOTO RING
+========================================== */
+
+/* ==========================================
+   CIRCLE OF LIFE — PHOTO WHEEL
+========================================== */
+
+.circle-images {
+    position: absolute;
+    inset: 2%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(190,158,61,.85);
+}
+
+.photo-wheel {
+    width: 100%;
+    height: 100%;  
+    display: block;
+}
+
+
+/* ==========================================
+   CENTER BADGE
+========================================== */
+
+.circle-center {
+    position: absolute;
+
+    width: 38%;
+    aspect-ratio: 1;
+
+    top: 31%;
+    left: 31%;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 14px;
+
+    background:
+        radial-gradient(
+            circle,
+            #16482d 0%,
+            #092b1b 100%
+        );
+
+    border: 1px solid #b8a354;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.5);
+}
+
+.circle-logo {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #b8a354;
+
+    border-radius: 50%;
+
+    color: #c0a44d;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: .55rem;
+
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+.circle-center h2 {
+    margin: 0;
+
+    color: #f3f0df;
+
+    font-size: .82rem;
+
+    line-height: 1.1;
+}
+
+.circle-center p {
+    margin: 7px 0;
+
+    color: rgba(255,255,255,.8);
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: .48rem;
+
+    line-height: 1.3;
+}
+
+.circle-center strong {
+    color: #c0a44d;
+
+    font-family: "DM Sans", sans-serif;
+
+    font-size: .48rem;
+
+    letter-spacing: .8px;
+}
+
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .hero {
+        padding: 60px 25px 50px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .circle-life {
+        width: min(440px, 48vw);
+
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+    .hero-quote {
+        grid-column: 1;
+        grid-row: 2;
+
+        text-align: left;
+
+        max-width: 420px;
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .hero {
+        min-height: auto;
+
+        padding: 90px 20px 60px;
+    }
+
+    .hero-container {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 40px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: clamp(2.6rem, 10vw, 4rem);
+
+        white-space: normal;
+    }
+
+    .hero-description {
+        margin: 0 auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .circle-life {
+        width: min(88vw, 430px);
+    }
+
+    .hero-quote {
+        text-align: center;
+
+        max-width: 400px;
+    }
+}
+
+/* ==========================================
+   GIVE · DO · SHARE
+========================================== */
+
+.give-do-share {
+    background: var(--cream);
+    padding: 90px 0;
+}
+
+.give-do-share .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 0.75fr 2.5fr 0.65fr;
+    gap: 30px;
+    align-items: center;
+}
+
+/* LEFT INTRO */
+
+.gds-intro {
+    max-width: 360px;
+}
+
+.gds-intro .section-label {
+    margin-bottom: 25px;
+}
+
+.gds-intro h2 {
+    margin: 0;
+    color: var(--forest);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: .95;
+}
+
+.gds-intro h2 em {
+    color: var(--leaf);
+    font-style: italic;
+}
+
+.gds-lead {
+    margin: 18px 0 8px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.gds-description {
+    max-width: 300px;
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+
+/* THREE ACTIONS */
+
+.gds-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    min-width: 0;
+}
+
+.gds-card {
+    text-align: center;
+}
+
+.gds-image {
+    width: 100%;
+    height: 270px;
+
+    overflow: hidden;
+
+    margin-bottom: 18px;
+
+    position: relative;
+}
+
+.gds-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.gds-card h3 {
+    margin: 0 0 8px;
+    color: var(--forest);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.gds-card p {
+    max-width: 190px;
+    margin: 0 auto;
+    font-size: .9rem;
+    line-height: 1.5;
+}
+ /* ==========================================
+   RIGHT PHILOSOPHY PANEL
+========================================== */
+
+.gds-philosophy {
+    border-left: 1px solid rgba(31, 72, 52, .22);
+    padding-left: 28px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.gds-principle {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.gds-icon {
+    flex: 0 0 28px;
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(31, 72, 52, .35);
+    border-radius: 50%;
+
+    color: var(--leaf);
+
+    font-size: .9rem;
+}
+
+.gds-principle p {
+    margin: 0;
+
+    color: var(--forest);
+
+    font-family: "DM Sans", sans-serif;
+    font-size: .72rem;
+    line-height: 1.45;
+}
+
+.gds-principle strong {
+    display: block;
+
+    font-weight: 700;
+    color: var(--forest);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .give-do-share .container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .gds-intro {
+        max-width: 600px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .gds-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .gds-philosophy {
+    border-left: none;
+    border-top: 1px solid rgba(31, 72, 52, .22);
+    padding-left: 0;
+    padding-top: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
 
 }
 
-/* Buttons */
 
-.hero-buttons{
+@media (max-width: 650px) {
 
-    margin-top:55px;
+    .gds-actions {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
 
-    display:flex;
+    .gds-image {
+        height: 280px;
+    }
+    .gds-philosophy {
+    grid-template-columns: 1fr;
+}
+}
+/* ==========================================
+   ME · WE · EARTH
+========================================== */
 
-    justify-content:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
+.me-we-earth {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    overflow: hidden;
+    background: var(--cream);
 }
 
-/* Scroll */
+/* SINGLE PANORAMIC IMAGE */
 
-.hero-scroll{
+.mwe-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/static/images/mwe.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+.mwe-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
 
-    margin-top:70px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    color:rgba(255,255,255,.6);
-
-    font-family:"DM Sans",sans-serif;
-
-    font-size:.8rem;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-
+    background:
+        linear-gradient(
+            90deg,
+            rgba(245, 241, 224, 0.45) 0%,
+            rgba(245, 241, 224, 0) 12%,
+            rgba(245, 241, 224, 0) 88%,
+            rgba(245, 241, 224, 0.45) 100%
+        );
 }
 
-.scroll-line{
+.mwe-content {
+    position: absolute;
+    z-index: 3;
+    padding: 18px 24px;
 
-    width:2px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(245, 241, 224, 0.62) 0%,
+        rgba(245, 241, 224, 0.38) 42%,
+        rgba(245, 241, 224, 0) 78%
+    );
+}
 
-    height:70px;
+.mwe-me-content {
+    left: 20%;
+    top: 30%;
+    transform: translateY(-50%);
+}
 
-    background:rgba(255,255,255,.35);
+.mwe-we-content {
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+}
 
-    margin-bottom:15px;
+.mwe-earth-content {
+    right: 10%;
+    top: 30%;
+    transform: translateY(-50%);
+}
 
-    animation:scrollPulse 2s infinite;
+.mwe-content h2 {
+    margin: 0 0 12px;
+    color: #123d2b;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 700;
+    line-height: .9;
+    letter-spacing: -2px;
+}
 
+.mwe-content p {
+    display: inline-block;
+    margin: 0;
+    padding: 9px 13px;
+
+    color: #173c30;
+    font-family: "DM Sans", sans-serif;
+    font-size: .72rem;
+    font-weight: 500;
+    line-height: 1.55;
+
+    background: rgba(245, 241, 224, 0.68);
+    border-radius: 7px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+.mwe-label {
+    display: block;
+    margin-bottom: 10px;
+
+    color: #b08d32;
+    font-family: "DM Sans", sans-serif;
+    font-size: .58rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+.mwe-label::after {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 1px;
+    margin-top: 7px;
+    background: #b08d32;
 }
 
 /* ==========================================
@@ -845,3 +1401,4 @@
     color:rgba(255,255,255,.82);
 
 }
+
