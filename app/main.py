@@ -43,13 +43,13 @@ async def work(request: Request):
     )
 
 
-# ---------------- Events ---------------- #
+# ---------------- Philosophy ---------------- #
 
-@app.get("/events", response_class=HTMLResponse)
-async def events(request: Request):
+@app.get("/philosophy", response_class=HTMLResponse)
+async def philosophy(request: Request):
     return templates.TemplateResponse(
         request=request,
-        name="public/events.html",
+        name="public/philosophy.html",
         context={}
     )
 
@@ -83,13 +83,5 @@ async def contact(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="public/contact.html",
-        context={}
-    )
-
-@app.get("/philosophy", response_class=HTMLResponse)
-async def philosophy(request: Request):
-    return templates.TemplateResponse(
-        request=request,
-        name="public/philosophy.html",
         context={}
     )
