@@ -861,7 +861,7 @@
     background: #f5f2e8;
     padding: 55px 35px;
     display: grid;
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    grid-template-columns: 1fr;
     gap: 28px;
     max-width: 1400px;
     margin: 0 auto;
@@ -1355,3 +1355,761 @@
     }
 }
 
+
+/* ==========================================
+   OUR IDEAS HERO — MATCHING PHILOSOPHY DESIGN
+========================================== */
+
+.our-ideas-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: 480px;
+    padding: 110px 7% 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-color: #092b1b;
+    background-image:
+        linear-gradient(
+            90deg,
+            #04160d 0%,
+            rgba(4, 22, 13, 0.97) 22%,
+            rgba(4, 22, 13, 0.82) 40%,
+            rgba(4, 22, 13, 0.35) 62%,
+            rgba(4, 22, 13, 0.08) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(4, 22, 13, 0.48) 0%,
+            transparent 30%,
+            transparent 75%,
+            rgba(4, 22, 13, 0.12) 100%
+        ),
+        url("/static/images/our-ideas-hero.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.our-ideas-hero .container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 720px;
+    margin: 0;
+    text-align: left;
+}
+
+.our-ideas-hero .section-label {
+    margin: 0 0 24px;
+    color: #c0a44d;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.our-ideas-hero h1 {
+    margin: 0;
+
+    color: #f4f1e4;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(3.2rem, 6.2vw, 5.6rem);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -1.8px;
+}
+
+.our-ideas-hero h1 em {
+    color: #82a86d;
+    font-style: italic;
+}
+
+.our-ideas-hero .hero-sub {
+    max-width: 610px;
+    margin: 26px 0 0;
+
+    color: rgba(255, 255, 255, 0.88);
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+/* Subtle inset border */
+
+.our-ideas-hero::before {
+    content: "";
+    position: absolute;
+    inset: 16px 20px;
+
+    border: 1px solid rgba(192, 164, 77, 0.2);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 700px) {
+    .our-ideas-hero {
+        min-height: 440px;
+        padding: 100px 30px 70px;
+
+        background-position: 58% center;
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(4, 22, 13, 0.94) 0%,
+                rgba(4, 22, 13, 0.78) 48%,
+                rgba(4, 22, 13, 0.38) 100%
+            ),
+            linear-gradient(
+                0deg,
+                rgba(4, 22, 13, 0.45),
+                transparent 65%
+            ),
+            url("/static/images/our-ideas-hero.png");
+    }
+
+    .our-ideas-hero::before {
+        inset: 10px;
+    }
+
+    .our-ideas-hero .section-label {
+        margin-bottom: 20px;
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+    }
+
+    .our-ideas-hero h1 {
+        font-size: clamp(2.8rem, 10vw, 4rem);
+        letter-spacing: -1px;
+    }
+
+    .our-ideas-hero .hero-sub {
+        margin-top: 22px;
+        font-size: 0.92rem;
+        line-height: 1.75;
+    }
+}
+
+@media (max-width: 400px) {
+    .our-ideas-hero {
+        min-height: 420px;
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .our-ideas-hero h1 {
+        font-size: 2.65rem;
+    }
+}
+
+/* ==========================================
+   OUR IDEAS — CENTRED INTRODUCTION
+========================================== */
+
+.ideas-introduction {
+    background: #ffffff;
+    padding: 90px 25px;
+}
+
+.ideas-intro-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.78);
+}
+
+.ideas-intro-container p {
+    margin: 0 auto 25px;
+    color: #626a61;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.95;
+}
+
+.ideas-intro-container .ideas-intro-lead {
+    max-width: 850px;
+    margin-bottom: 30px;
+    color: #123d2b;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.45rem, 2.5vw, 1.9rem);
+    line-height: 1.65;
+}
+
+.ideas-intro-container .ideas-intro-highlight {
+    margin: 30px auto;
+    color: #668b53;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.ideas-intro-container p:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+    .ideas-introduction {
+        padding: 60px 23px;
+    }
+
+    .ideas-intro-container p {
+        font-size: 0.94rem;
+        line-height: 1.85;
+        margin-bottom: 22px;
+    }
+
+    .ideas-intro-container .ideas-intro-lead {
+        font-size: 1.4rem;
+    }
+
+    .ideas-intro-container .ideas-intro-highlight {
+        font-size: 1.3rem;
+    }
+}
+
+
+/* ==========================================
+   OUR IDEAS — COMMON PAGE BACKGROUND
+========================================== */
+
+.our-ideas-page {
+    background-color: #ffffff;
+    background-image: url("/static/images/our-ideas-background.png");
+    background-repeat: repeat;
+    background-position: center top;
+    background-size: 900px auto;
+    min-height: 100vh;
+}
+
+/* Keep the introduction transparent
+   so the common background remains visible */
+
+.our-ideas-page .ideas-introduction {
+    background: transparent;
+}
+
+
+/* ==========================================
+   OUR IDEAS — COMMON FEATHER BACKGROUND
+========================================== */
+
+.our-ideas-page {
+    min-height: 100vh;
+    background-color: #ffffff;
+    background-image: url("/static/images/our-ideas-background.png");
+    background-repeat: repeat;
+    background-position: center top;
+    background-size: 900px auto;
+}
+
+/* Keep the introduction transparent */
+
+.our-ideas-page .ideas-introduction {
+    background: transparent;
+}
+
+/* Preserve the hero's own background image */
+
+.our-ideas-page .our-ideas-hero {
+    background-image:
+        linear-gradient(
+            90deg,
+            #04160d 0%,
+            rgba(4, 22, 13, 0.97) 22%,
+            rgba(4, 22, 13, 0.82) 40%,
+            rgba(4, 22, 13, 0.35) 62%,
+            rgba(4, 22, 13, 0.08) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(4, 22, 13, 0.48) 0%,
+            transparent 30%,
+            transparent 75%,
+            rgba(4, 22, 13, 0.12) 100%
+        ),
+        url("/static/images/our-ideas-hero.png");
+}
+
+
+/* ==========================================
+   OUR IDEAS — THE TRIPLE I EFFECT
+========================================== */
+
+.triple-i-section {
+    padding: 90px 25px;
+    background: transparent;
+}
+
+.triple-i-container {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.triple-i-section .section-label {
+    margin-bottom: 18px;
+    color: #9b8139;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.triple-i-section h2 {
+    margin: 0 0 20px;
+    color: #123d2b;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.triple-i-intro {
+    max-width: 750px;
+    margin: 0 0 45px;
+    color: #626a61;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+/* Three stages */
+
+.triple-i-stages {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.triple-i-stage {
+    padding: 30px 26px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid #e9e4d7;
+    border-top: 3px solid #c0a44d;
+    border-radius: 4px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.triple-i-stage:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(4, 22, 13, 0.08);
+}
+
+.triple-i-number {
+    display: block;
+    margin-bottom: 18px;
+    color: #b8a354;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 2rem;
+}
+
+.triple-i-stage h3 {
+    margin: 0 0 10px;
+    color: #123d2b;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.triple-i-stage h4 {
+    margin: 0 0 17px;
+    color: #668b53;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.triple-i-stage p {
+    margin: 0;
+    color: #626a61;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.85;
+}
+
+/* Continuous cycle statement */
+
+.triple-i-cycle {
+    max-width: 900px;
+    margin: 38px auto 0;
+    padding: 24px 30px;
+    border-left: 3px solid #c0a44d;
+    background: rgba(255, 255, 255, 0.78);
+}
+
+.triple-i-cycle p {
+    margin: 0;
+    color: #315d3d;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+/* Share your idea invitation */
+
+.triple-i-invitation {
+    margin-top: 55px;
+    padding: 42px 35px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid #e9e4d7;
+    border-radius: 5px;
+}
+
+.triple-i-invitation h3 {
+    margin: 0 0 15px;
+    color: #123d2b;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 500;
+}
+
+.triple-i-invitation p {
+    max-width: 720px;
+    margin: 0 auto 25px;
+    color: #626a61;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.96rem;
+    line-height: 1.9;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+    .triple-i-stages {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .triple-i-stage {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .triple-i-section {
+        padding: 60px 20px;
+    }
+
+    .triple-i-invitation {
+        padding: 32px 22px;
+    }
+
+    .triple-i-cycle {
+        padding: 20px;
+    }
+}
+
+
+/* ==========================================
+   SHARE YOUR IDEA - POPUP FORM
+========================================== */
+
+.idea-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    padding: 30px 18px;
+    background: rgba(4, 22, 13, 0.78);
+    align-items: center;
+    justify-content: center;
+}
+
+.idea-modal.is-open {
+    display: flex;
+}
+
+.idea-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 45px;
+    background: #fffdf6;
+    border: 1px solid #c0a44d;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.idea-modal-content .section-label {
+    margin-bottom: 12px;
+    color: #9b8139;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.idea-modal-content h2 {
+    margin: 0 0 30px;
+    color: #123d2b;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.idea-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    border: none;
+    background: transparent;
+    color: #123d2b;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.idea-submission-form label,
+.idea-submission-form legend {
+    display: block;
+    margin: 0 0 9px;
+    color: #31513d;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+#idea-submission-form > label {
+    margin-top: 20px;
+}
+
+#idea-submission-form input:not([type="checkbox"]):not([type="radio"]),
+#idea-submission-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d9d9ca;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #263c2e;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+#idea-submission-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+#idea-submission-form input:focus,
+#idea-submission-form textarea:focus {
+    outline: none;
+    border-color: #668b53;
+    box-shadow: 0 0 0 3px rgba(102, 139, 83, 0.12);
+}
+
+#idea-submission-form fieldset {
+    margin: 24px 0;
+    padding: 18px;
+    border: 1px solid #e2ddce;
+    border-radius: 4px;
+}
+
+#idea-submission-form fieldset label,
+#idea-submission-form > label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 400;
+}
+
+#idea-submission-form button[type="submit"] {
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .idea-modal {
+        padding: 12px;
+    }
+
+    .idea-modal-content {
+        padding: 38px 22px 25px;
+        max-height: 94vh;
+    }
+
+    .idea-modal-content h2 {
+        font-size: 2rem;
+    }
+}
+.idea-success-message {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    padding: 18px 24px;
+    background: rgba(255, 255, 255, 0.95);
+    border-left: 4px solid #668b53;
+    color: #123d2b;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+
+/* ==========================================
+   02. THE COLLECTIVE
+========================================== */
+
+.collective-section {
+    padding: 90px 25px;
+    background: transparent;
+}
+
+.collective-container {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.collective-section .section-label {
+    margin-bottom: 18px;
+    color: #9b8139;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.collective-section h2 {
+    margin: 0 0 28px;
+    color: #123d2b;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.collective-intro {
+    max-width: 850px;
+    margin-bottom: 40px;
+}
+
+.collective-intro p,
+.collective-invitation > p {
+    color: #626a61;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.96rem;
+    line-height: 1.9;
+}
+
+.collective-contributions {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.collective-item {
+    padding: 28px 22px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid #e9e4d7;
+    border-top: 3px solid #c0a44d;
+    border-radius: 4px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.collective-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(4, 22, 13, 0.08);
+}
+
+.collective-number {
+    display: block;
+    margin-bottom: 18px;
+    color: #b8a354;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 2rem;
+}
+
+.collective-item h3 {
+    margin: 0 0 12px;
+    color: #123d2b;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 1.5px;
+}
+
+.collective-item p {
+    margin: 0;
+    color: #626a61;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.collective-message {
+    max-width: 900px;
+    margin: 38px auto;
+    padding: 25px 30px;
+    background: rgba(255, 255, 255, 0.78);
+    border-left: 3px solid #c0a44d;
+}
+
+.collective-message p {
+    margin: 0;
+    color: #315d3d;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.collective-invitation {
+    margin-top: 45px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid #e9e4d7;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.collective-invitation h3 {
+    margin: 22px 0 5px;
+    color: #123d2b;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.9rem;
+    font-weight: 500;
+}
+
+.collective-invitation .collective-note {
+    max-width: 750px;
+    margin: 25px auto 0;
+}
+
+@media (max-width: 900px) {
+    .collective-contributions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .collective-section {
+        padding: 60px 20px;
+    }
+
+    .collective-contributions {
+        grid-template-columns: 1fr;
+    }
+
+    .collective-invitation {
+        padding: 30px 22px;
+    }
+}

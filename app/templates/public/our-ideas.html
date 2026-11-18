@@ -1,0 +1,379 @@
+{% extends "base.html" %}
+
+{% block title %}
+Our Work
+{% endblock %}
+
+{% block content %}
+
+
+<div class="our-ideas-page">
+<section class="page-hero our-ideas-hero">
+
+    <div class="container">
+
+        <p class="section-label">FROM THOUGHT TO ACTION</p>
+
+        <h1>
+            From Thought to
+            <br>
+            <em>Action</em>
+        </h1>
+
+        <p class="hero-sub">
+            Connect. Learn. Serve. Transform.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- OUR IDEAS — INTRODUCTION -->
+
+<section class="ideas-introduction">
+
+    <div class="ideas-intro-container">
+
+        <p class="ideas-intro-lead">
+            Every meaningful change begins with a thought.
+            When that thought is enriched with reliable information,
+            supported by committed people and translated into action,
+            it can transform lives and communities.
+        </p>
+
+        <p>
+            At Vasudhaiva Kutumbakam, we believe that building a
+            better world is not the responsibility of a few.
+            It is an opportunity for everyone.
+        </p>
+
+        <p>
+            You may have an idea that can solve a community problem,
+            knowledge that can enlighten others, a skill that can
+            help someone grow, resources you can share, or simply
+            the willingness to give your time and effort.
+        </p>
+
+        <p class="ideas-intro-highlight">
+            Whatever you can contribute, there is a place for you here.
+        </p>
+
+        <p>
+            Through Triple I, The Collective, SEVA and SIKSHANA,
+            we bring ideas, people, knowledge and action together
+            to create meaningful social impact.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     THE TRIPLE I EFFECT
+========================================== -->
+
+<section class="triple-i-section">
+{% if request.query_params.get('submitted') == 'true' %}
+<div class="idea-success-message" role="status">
+    Thank you for sharing your idea. Your submission has been received.
+</div>
+{% endif %}
+    <div class="triple-i-container">
+
+        <p class="section-label">01. THE TRIPLE I EFFECT</p>
+
+        <h2>
+            Idea. Information. Implementation.
+        </h2>
+
+        <p class="triple-i-intro">
+            We believe that good intentions become more powerful
+            when supported by informed thinking and purposeful action.
+        </p>
+
+        <div class="triple-i-stages">
+
+            <div class="triple-i-stage">
+                <span class="triple-i-number">01</span>
+                <h3>IDEA</h3>
+                <h4>Imagine a Better Possibility</h4>
+                <p>
+                    Every individual has the potential to identify a
+                    problem, recognise an opportunity or imagine a
+                    better way of doing things. We welcome ideas that
+                    can improve lives, strengthen communities, protect
+                    nature and contribute to the common good.
+                </p>
+            </div>
+
+            <div class="triple-i-stage">
+                <span class="triple-i-number">02</span>
+                <h3>INFORMATION</h3>
+                <h4>Discover What Is Needed</h4>
+                <p>
+                    An idea gains direction through reliable information.
+                    We encourage research, surveys, expert consultation,
+                    community engagement and learning from successful
+                    experiences to understand problems and identify
+                    practical solutions.
+                </p>
+            </div>
+
+            <div class="triple-i-stage">
+                <span class="triple-i-number">03</span>
+                <h3>IMPLEMENTATION</h3>
+                <h4>Turn Ideas into Impact</h4>
+                <p>
+                    Ideas must move beyond discussion. By connecting
+                    willing people, relevant expertise and available
+                    resources, we strive to translate promising ideas
+                    into practical initiatives, assess their results
+                    and improve them through experience.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="triple-i-cycle">
+            <p>
+                The Triple I Effect is a continuous cycle:
+                implementation generates experience, experience
+                produces new information, and new information
+                inspires better ideas.
+            </p>
+        </div>
+
+        <div class="triple-i-invitation">
+
+            <h3>Have an idea for a better world?</h3>
+
+            <p>
+                You do not need to be an expert or have all the answers.
+                If you see a problem, imagine a solution or wish to
+                improve an existing initiative, we invite you to
+                share your idea.
+            </p>
+
+            <button type="button" class="btn-primary" id="open-idea-form">
+    SHARE YOUR IDEA
+</button>
+
+        </div>
+        <!-- SHARE YOUR IDEA POPUP -->
+<div class="idea-modal" id="idea-modal" aria-hidden="true">
+
+    <div class="idea-modal-content" role="dialog"
+         aria-modal="true" aria-labelledby="idea-form-title">
+
+        <button type="button" class="idea-modal-close"
+                id="close-idea-form" aria-label="Close form">
+            &times;
+        </button>
+
+        <p class="section-label">THE TRIPLE I EFFECT</p>
+
+        <h2 id="idea-form-title">Share Your Idea</h2>
+
+        <form id="idea-submission-form"
+      action="/submit-idea"
+      method="POST">
+
+            <label for="idea-name">Your name</label>
+            <input type="text" id="idea-name" name="name" required>
+
+            <label for="idea-contact">Your contact details</label>
+            <input type="text" id="idea-contact" name="contact" required>
+
+            <label>
+                <input type="checkbox" name="private_discussion">
+                Request a private discussion
+            </label>
+
+            <label for="idea-title">Title of your idea</label>
+            <input type="text" id="idea-title" name="idea_title" required>
+
+            <label for="idea-problem">The problem or need you have identified</label>
+            <textarea id="idea-problem" name="problem" rows="3" required></textarea>
+
+            <label for="idea-solution">Your proposed solution</label>
+            <textarea id="idea-solution" name="solution" rows="3" required></textarea>
+
+            <label for="idea-beneficiaries">Who would benefit?</label>
+            <textarea id="idea-beneficiaries" name="beneficiaries" rows="2" required></textarea>
+
+            <label for="idea-evidence">Information, evidence or experience supporting the idea</label>
+            <textarea id="idea-evidence" name="evidence" rows="3"></textarea>
+
+            <label for="idea-implementation">How could the idea be implemented?</label>
+            <textarea id="idea-implementation" name="implementation" rows="3"></textarea>
+
+            <label for="idea-support">What support or expertise might be required?</label>
+            <textarea id="idea-support" name="support" rows="3"></textarea>
+
+            <fieldset>
+                <legend>Would you like to participate in developing or implementing it?</legend>
+
+                <label>
+                    <input type="radio" name="participation" value="Yes" required>
+                    Yes
+                </label>
+
+                <label>
+                    <input type="radio" name="participation" value="No">
+                    No
+                </label>
+            </fieldset>
+
+            <button type="submit" class="btn-primary">
+                SUBMIT YOUR IDEA
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+    </div>
+    
+</section>
+
+<!-- ==========================================
+     02. THE COLLECTIVE
+========================================== -->
+
+<section class="collective-section">
+
+    <div class="collective-container">
+
+        <p class="section-label">02. THE COLLECTIVE</p>
+
+        <h2>Individual Strength. Collective Impact.</h2>
+
+        <div class="collective-intro">
+            <p>
+                No individual possesses every skill, resource or answer.
+                But each person has something valuable to contribute.
+            </p>
+
+            <p>
+                The Collective brings together people from different
+                professions, backgrounds, generations and communities,
+                united by a shared desire to make a positive difference.
+            </p>
+        </div>
+
+        <div class="collective-contributions">
+
+            <div class="collective-item">
+                <span class="collective-number">01</span>
+                <h3>KNOWLEDGE</h3>
+                <p>One person may offer knowledge.</p>
+            </div>
+
+            <div class="collective-item">
+                <span class="collective-number">02</span>
+                <h3>EXPERTISE</h3>
+                <p>Another professional expertise.</p>
+            </div>
+
+            <div class="collective-item">
+                <span class="collective-number">03</span>
+                <h3>TIME AND EFFORT</h3>
+                <p>Another time and effort.</p>
+            </div>
+
+            <div class="collective-item">
+                <span class="collective-number">04</span>
+                <h3>RESOURCES</h3>
+                <p>And another the resources needed to bring an initiative to life.</p>
+            </div>
+
+        </div>
+
+        <div class="collective-message">
+            <p>
+                Together, we can achieve what may be difficult to
+                accomplish alone.
+            </p>
+        </div>
+
+        <div class="collective-invitation">
+
+            <p>
+                We invite teachers, students, professionals, entrepreneurs,
+                farmers, technologists, artists, retired persons,
+                community leaders and every willing citizen to become
+                part of this collective effort.
+            </p>
+
+            <h3>You need not do everything.</h3>
+
+            <p>
+                You only need to contribute what you can.
+            </p>
+
+            <button type="button" class="btn-primary"
+                    id="open-contributor-form">
+                BECOME A CONTRIBUTOR
+            </button>
+
+            <p class="collective-note">
+                Tell us about your interests, skills, experience,
+                availability and the causes you care about.
+                We will strive to connect your strengths with suitable
+                opportunities for meaningful contribution.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("idea-modal");
+    const openButton = document.getElementById("open-idea-form");
+    const closeButton = document.getElementById("close-idea-form");
+
+    if (!modal || !openButton || !closeButton) return;
+
+    function openModal() {
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        openButton.focus();
+    }
+
+    openButton.addEventListener("click", openModal);
+    closeButton.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && modal.classList.contains("is-open")) {
+            closeModal();
+        }
+    });
+});
+</script>
+{% endblock %}
