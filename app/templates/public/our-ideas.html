@@ -328,6 +328,924 @@ Our Work
 
         </div>
 
+<!-- CONTRIBUTOR REGISTRATION POPUP -->
+
+<div class="contributor-modal" id="contributor-modal" aria-hidden="true">
+
+    <div class="contributor-modal-content">
+
+        <button type="button"
+                class="contributor-modal-close"
+                id="close-contributor-form"
+                aria-label="Close form">
+            &times;
+        </button>
+
+        <p class="section-label">THE COLLECTIVE</p>
+
+        <h2>Become a Contributor</h2>
+
+        <p class="contributor-form-intro">
+            Tell us about yourself, your skills and how you would like
+            to contribute to meaningful change.
+        </p>
+
+        <form id="contributor-registration-form"
+              action="/submit-contributor"
+              method="POST">
+
+            <div class="contributor-form-group">
+                <label for="contributor-name">Full name *</label>
+                <input type="text" id="contributor-name"
+                       name="name" required>
+            </div>
+
+            <div class="contributor-form-group">
+                <label for="contributor-email">Email address *</label>
+                <input type="email" id="contributor-email"
+                       name="email" required>
+            </div>
+
+            <div class="contributor-form-group">
+                <label for="contributor-phone">Phone number</label>
+                <input type="tel" id="contributor-phone"
+                       name="phone">
+            </div>
+
+            <div class="contributor-form-group">
+                <label for="contributor-location">Location *</label>
+                <input type="text" id="contributor-location"
+                       name="location" required>
+            </div>
+
+            <div class="contributor-form-group">
+                <label>Areas of interest *</label>
+
+                <div class="contributor-checkbox-grid">
+                    <label><input type="checkbox" name="interests" value="Environment and Nature"> Environment and Nature</label>
+                    <label><input type="checkbox" name="interests" value="Education and Mentoring"> Education and Mentoring</label>
+                    <label><input type="checkbox" name="interests" value="Healthcare and Well-being"> Healthcare and Well-being</label>
+                    <label><input type="checkbox" name="interests" value="Women Empowerment"> Women Empowerment</label>
+                    <label><input type="checkbox" name="interests" value="Community Development"> Community Development</label>
+                    <label><input type="checkbox" name="interests" value="Technology and IT"> Technology and IT</label>
+                    <label><input type="checkbox" name="interests" value="Livelihoods and Employment"> Livelihoods and Employment</label>
+                    <label><input type="checkbox" name="interests" value="Civic Awareness"> Civic Awareness</label>
+                    <label><input type="checkbox" name="interests" value="Social Welfare"> Social Welfare</label>
+                    <label><input type="checkbox" name="interests" value="Other"> Other</label>
+                </div>
+            </div>
+
+            <div class="contributor-form-group">
+                <label>Skills and expertise *</label>
+
+                <div class="contributor-checkbox-grid">
+                    <label><input type="checkbox" name="skills" value="Teaching and Training"> Teaching and Training</label>
+                    <label><input type="checkbox" name="skills" value="Research and Analysis"> Research and Analysis</label>
+                    <label><input type="checkbox" name="skills" value="IT and Software"> IT and Software</label>
+                    <label><input type="checkbox" name="skills" value="Communication and Writing"> Communication and Writing</label>
+                    <label><input type="checkbox" name="skills" value="Management and Administration"> Management and Administration</label>
+                    <label><input type="checkbox" name="skills" value="Finance and Accounting"> Finance and Accounting</label>
+                    <label><input type="checkbox" name="skills" value="Design and Creativity"> Design and Creativity</label>
+                    <label><input type="checkbox" name="skills" value="Community Engagement"> Community Engagement</label>
+                    <label><input type="checkbox" name="skills" value="Healthcare"> Healthcare</label>
+                    <label><input type="checkbox" name="skills" value="Other"> Other</label>
+                </div>
+            </div>
+
+            <div class="contributor-form-group">
+                <label for="contributor-experience">
+                    Professional background and experience
+                </label>
+                <textarea id="contributor-experience"
+                          name="experience" rows="4"></textarea>
+            </div>
+
+            <div class="contributor-form-group">
+                <label for="contributor-availability">Availability *</label>
+                <select id="contributor-availability"
+                        name="availability" required>
+                    <option value="">Select availability</option>
+                    <option value="One-time">One-time</option>
+                    <option value="Occasional">Occasional</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Flexible">Flexible</option>
+                </select>
+            </div>
+
+            <div class="contributor-form-group">
+                <label>Preferred contribution *</label>
+
+                <div class="contributor-checkbox-grid">
+                    <label><input type="checkbox" name="contributions" value="Time"> Time</label>
+                    <label><input type="checkbox" name="contributions" value="Expertise"> Expertise</label>
+                    <label><input type="checkbox" name="contributions" value="Physical effort"> Physical effort</label>
+                    <label><input type="checkbox" name="contributions" value="Resources"> Resources</label>
+                    <label><input type="checkbox" name="contributions" value="Financial support"> Financial support</label>
+                </div>
+            </div>
+
+            <div class="contributor-form-group">
+                <label for="contributor-message">
+                    How would you like to contribute?
+                </label>
+                <textarea id="contributor-message"
+                          name="message" rows="4"></textarea>
+            </div>
+
+            <div class="contributor-form-group">
+                <label for="contributor-additional">
+                    Any additional information
+                </label>
+                <textarea id="contributor-additional"
+                          name="additional_info" rows="3"></textarea>
+            </div>
+
+            <div class="contributor-consent">
+                <label>
+                    <input type="checkbox" name="consent"
+                           value="yes" required>
+                    I agree to be contacted about suitable contribution
+                    opportunities. *
+                </label>
+            </div>
+
+            <button type="submit" class="btn-primary">
+                SUBMIT REGISTRATION
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+    </div>
+
+</section>
+
+{% if request.query_params.get('contributor_submitted') == 'true' %}
+<div class="contributor-success-message" role="status">
+    Thank you for your interest in becoming a contributor.
+    Your registration has been received.
+</div>
+{% endif %}
+
+
+<!-- ==========================================
+     03. SEVA
+========================================== -->
+
+<section class="seva-section">
+
+    <div class="seva-container">
+
+        <p class="section-label">03. SEVA</p>
+
+        <h2>Socio-Environmental Visionary Activities</h2>
+
+        <div class="seva-intro">
+            <p>
+                Compassion becomes meaningful when it translates into action.
+            </p>
+
+            <p>
+                SEVA is our platform for voluntary service, social welfare,
+                community development and environmental responsibility.
+                It embraces the belief that service is not limited to donating
+                money. Giving time, sharing knowledge, applying professional
+                skills, helping a person in need and protecting nature are
+                equally meaningful forms of contribution.
+            </p>
+        </div>
+
+        <div class="seva-grid">
+
+            <article class="seva-card">
+                <span class="seva-number">01</span>
+                <h3>Environment, Nature and Biodiversity</h3>
+                <p>
+                    Tree plantation and sapling care, waste management,
+                    recycling, plastic reduction, organic and natural farming,
+                    biodiversity conservation, soil protection and community
+                    cleanliness.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">02</span>
+                <h3>Water Resources and Climate Action</h3>
+                <p>
+                    Rainwater harvesting, water conservation, restoration of
+                    ponds and lakes, groundwater recharge, watershed
+                    development, water-quality awareness and climate resilience.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">03</span>
+                <h3>Education, Children and Mentoring</h3>
+                <p>
+                    Teaching, tuition support, scholarships, educational
+                    sponsorship, books and learning materials, digital literacy,
+                    career guidance, student mentoring, spoken English and
+                    skill development.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">04</span>
+                <h3>Elderly Care and Social Companionship</h3>
+                <p>
+                    Visits to old-age homes, companionship for isolated elderly
+                    people, recreational activities, digital assistance,
+                    welfare guidance and support for vulnerable individuals.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">05</span>
+                <h3>Healthcare, Blood and Organ Donation</h3>
+                <p>
+                    Voluntary blood donation, authorised organ and tissue
+                    donation awareness, medical camps with qualified
+                    professionals, patient assistance, hospital accompaniment,
+                    healthcare access guidance and support for people facing
+                    medical hardship.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">06</span>
+                <h3>Food and Essential Needs</h3>
+                <p>
+                    Food distribution, community kitchens, surplus-food
+                    redistribution, groceries, clothing, blankets, hygiene
+                    supplies and emergency assistance for people in need.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">07</span>
+                <h3>Livelihoods and Economic Empowerment</h3>
+                <p>
+                    Self-employment support, vocational training,
+                    entrepreneurship mentoring, job readiness, financial
+                    literacy, market access and assistance to women-led and
+                    community enterprises.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">08</span>
+                <h3>Women Empowerment and Inclusion</h3>
+                <p>
+                    Education, livelihood opportunities, financial and digital
+                    literacy, accessibility initiatives, awareness of rights
+                    and support for disadvantaged individuals and families.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">09</span>
+                <h3>Civic Responsibility, RTI and Justice</h3>
+                <p>
+                    Raising RTIs, conducting community surveys, documenting
+                    public-service gaps, assisting with grievance submissions,
+                    spreading civic awareness and connecting eligible
+                    individuals with legal-aid services.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">10</span>
+                <h3>Community Infrastructure</h3>
+                <p>
+                    Neighbourhood cleanliness, road-safety initiatives,
+                    reporting damaged public facilities, drainage and
+                    sanitation improvement, accessibility and authorised
+                    community improvement projects.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">11</span>
+                <h3>Disaster Relief and Rehabilitation</h3>
+                <p>
+                    Relief-material collection, food and water distribution,
+                    volunteer coordination, emergency preparedness and support
+                    for affected families during natural calamities.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">12</span>
+                <h3>Knowledge, Technology and Professional Service</h3>
+                <p>
+                    Free professional services, IT support, website
+                    development, research, data analysis, translation,
+                    documentation, financial-management assistance and
+                    training in different fields.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">13</span>
+                <h3>Yoga, Meditation, Sports and Well-being</h3>
+                <p>
+                    Community yoga, meditation, fitness awareness, recreational
+                    games, inclusive sports and activities that promote
+                    physical, emotional and social well-being.
+                </p>
+            </article>
+
+            <article class="seva-card">
+                <span class="seva-number">14</span>
+                <h3>Giving and Community Solidarity</h3>
+                <p>
+                    Donating time, sharing expertise, providing resources,
+                    mentoring, connecting donors with verified needs and
+                    extending compassionate support to people facing hardship.
+                </p>
+            </article>
+
+        </div>
+
+        <div class="seva-note">
+            <p>
+                These categories are an invitation to participate, not a
+                limitation on what SEVA can achieve. New activities can emerge
+                whenever a genuine need meets a practical idea and willing
+                contributors.
+            </p>
+        </div>
+
+        <div class="seva-invitation">
+
+            <h3>Where would you like to serve?</h3>
+
+            <p>
+                Choose the cause that speaks to you. You may select one
+                activity or several, contribute occasionally or volunteer
+                regularly, work directly with beneficiaries or support
+                planning and coordination.
+            </p>
+
+            <div class="seva-buttons">
+                <button type="button" class="btn-primary">
+                    EXPLORE SEVA ACTIVITIES
+                </button>
+
+                <button type="button" class="btn-secondary" id="open-seva-form">
+    VOLUNTEER FOR SEVA
+</button>
+            </div>
+
+            <div class="seva-volunteer-info">
+
+                <p><strong>Suggested volunteer registration fields:</strong></p>
+
+                <ul>
+                    <li>Name and preferred contact method</li>
+                    <li>Location or area of service</li>
+                    <li>SEVA activities of interest (multiple selections)</li>
+                    <li>Skills, experience or qualifications relevant to the activity</li>
+                    <li>Preferred contribution: time, expertise, physical effort, resources or financial support</li>
+                    <li>Availability: one-time, occasional or regular</li>
+                    <li>Preferred mode: on-site, remote or either</li>
+                    <li>Any accessibility requirements or relevant limitations</li>
+                    <li>Consent to be contacted about suitable opportunities</li>
+                </ul>
+
+                <p>
+                    VK can use these preferences to connect volunteers with
+                    suitable activities, subject to verification, availability
+                    and appropriate safeguards.
+                </p>
+
+            </div>
+
+            <p class="seva-closing">
+                We believe that every sincere contribution has value. The
+                objective is not merely to gather volunteers, but to connect
+                willing people with genuine needs and help turn their efforts
+                into meaningful outcomes.
+            </p>
+
+        </div>
+
+<!-- SEVA VOLUNTEER REGISTRATION POPUP -->
+
+<div class="seva-modal" id="seva-modal" aria-hidden="true">
+
+    <div class="seva-modal-content">
+
+        <button type="button" class="seva-modal-close"
+                id="close-seva-form" aria-label="Close form">
+            &times;
+        </button>
+
+        <p class="section-label">SEVA VOLUNTEER REGISTRATION</p>
+        <h2>Volunteer for SEVA</h2>
+
+        <p>Tell us how you would like to contribute to social welfare,
+        community development and environmental responsibility.</p>
+
+        <form action="/submit-seva-volunteer" method="POST">
+
+            <div class="seva-form-group">
+                <label for="seva-name">Full name *</label>
+                <input type="text" id="seva-name" name="name" required>
+            </div>
+
+            <div class="seva-form-group">
+                <label for="seva-email">Email address *</label>
+                <input type="email" id="seva-email" name="email" required>
+            </div>
+
+            <div class="seva-form-group">
+                <label for="seva-phone">Phone number *</label>
+                <input type="tel" id="seva-phone" name="phone" required>
+            </div>
+
+            <div class="seva-form-group">
+                <label for="seva-location">Location or area of service *</label>
+                <input type="text" id="seva-location" name="location" required>
+            </div>
+
+            <div class="seva-form-group">
+                <label>SEVA activities of interest *</label>
+                <div class="seva-checkbox-grid">
+                    <label><input type="checkbox" name="activities" value="Environment and Nature"> Environment and Nature</label>
+                    <label><input type="checkbox" name="activities" value="Water Resources and Climate Action"> Water Resources and Climate Action</label>
+                    <label><input type="checkbox" name="activities" value="Education and Mentoring"> Education and Mentoring</label>
+                    <label><input type="checkbox" name="activities" value="Elderly Care"> Elderly Care</label>
+                    <label><input type="checkbox" name="activities" value="Healthcare and Donation"> Healthcare and Donation</label>
+                    <label><input type="checkbox" name="activities" value="Food and Essential Needs"> Food and Essential Needs</label>
+                    <label><input type="checkbox" name="activities" value="Livelihoods and Economic Empowerment"> Livelihoods and Economic Empowerment</label>
+                    <label><input type="checkbox" name="activities" value="Women Empowerment and Inclusion"> Women Empowerment and Inclusion</label>
+                    <label><input type="checkbox" name="activities" value="Civic Responsibility"> Civic Responsibility</label>
+                    <label><input type="checkbox" name="activities" value="Community Infrastructure"> Community Infrastructure</label>
+                    <label><input type="checkbox" name="activities" value="Disaster Relief"> Disaster Relief</label>
+                    <label><input type="checkbox" name="activities" value="Knowledge and Technology"> Knowledge and Technology</label>
+                    <label><input type="checkbox" name="activities" value="Yoga, Meditation and Sports"> Yoga, Meditation and Sports</label>
+                    <label><input type="checkbox" name="activities" value="Giving and Community Solidarity"> Giving and Community Solidarity</label>
+                </div>
+            </div>
+
+            <div class="seva-form-group">
+                <label for="seva-skills">Skills, experience or qualifications *</label>
+                <textarea id="seva-skills" name="skills" rows="4" required></textarea>
+            </div>
+
+            <div class="seva-form-group">
+                <label>Preferred contribution *</label>
+                <div class="seva-checkbox-grid">
+                    <label><input type="checkbox" name="contributions" value="Time"> Time</label>
+                    <label><input type="checkbox" name="contributions" value="Expertise"> Expertise</label>
+                    <label><input type="checkbox" name="contributions" value="Physical effort"> Physical effort</label>
+                    <label><input type="checkbox" name="contributions" value="Resources"> Resources</label>
+                    <label><input type="checkbox" name="contributions" value="Financial support"> Financial support</label>
+                </div>
+            </div>
+
+            <div class="seva-form-group">
+                <label for="seva-availability">Availability *</label>
+                <select id="seva-availability" name="availability" required>
+                    <option value="">Select availability</option>
+                    <option value="One-time">One-time</option>
+                    <option value="Occasional">Occasional</option>
+                    <option value="Regular">Regular</option>
+                </select>
+            </div>
+
+            <div class="seva-form-group">
+                <label for="seva-mode">Preferred mode *</label>
+                <select id="seva-mode" name="mode" required>
+                    <option value="">Select preferred mode</option>
+                    <option value="On-site">On-site</option>
+                    <option value="Remote">Remote</option>
+                    <option value="Either">Either</option>
+                </select>
+            </div>
+
+            <div class="seva-form-group">
+                <label for="seva-accessibility">
+                    Accessibility requirements or relevant limitations
+                </label>
+                <textarea id="seva-accessibility" name="accessibility"
+                          rows="3"></textarea>
+            </div>
+
+            <div class="seva-form-group">
+                <label>
+                    <input type="checkbox" name="consent" value="yes" required>
+                    I consent to being contacted about suitable opportunities. *
+                </label>
+            </div>
+
+            <button type="submit" class="btn-primary">
+                SUBMIT VOLUNTEER REGISTRATION
+            </button>
+
+        </form>
+    </div>
+</div>
+
+
+    </div>
+
+</section>
+
+{% if request.query_params.get('seva_submitted') == 'true' %}
+<div class="seva-success-message" role="status">
+    Thank you for volunteering for SEVA.
+    Your registration has been received.
+</div>
+{% endif %}
+
+
+<!-- ==========================================
+     04. SIKSHANA
+========================================== -->
+
+<section class="sikshana-section">
+
+    <div class="sikshana-container">
+
+        <p class="section-label">04. SIKSHANA</p>
+
+        <h2>Knowledge That Enlightens. Learning That Empowers.</h2>
+
+        <div class="sikshana-intro">
+            <p>
+                Knowledge becomes more valuable when it is shared.
+            </p>
+
+            <p>
+                SIKSHANA is our learning and knowledge-sharing initiative,
+                designed to make useful information, education, awareness
+                and personal development accessible to more people.
+            </p>
+
+            <p>
+                Through expert talks, mentoring, workshops, educational
+                guidance, digital literacy, civic awareness and
+                community-learning programmes, we aim to empower individuals
+                to make informed choices and become active contributors
+                to society.
+            </p>
+        </div>
+
+        <div class="jyotirgamaya-panel">
+
+            <p class="jyotirgamaya-label">PROGRAMME IDENTITY</p>
+
+            <h3>JYOTIRGAMAYA</h3>
+
+            <p class="jyotirgamaya-subtitle">
+                From Darkness to Light
+            </p>
+
+            <div class="jyotirgamaya-divider"></div>
+
+            <p>
+                JYOTIRGAMAYA is the programme identity for initiatives
+                conducted under SIKSHANA. Inspired by the timeless aspiration
+                to move from darkness to light, it represents the journey
+                from ignorance to knowledge, confusion to clarity and
+                awareness to constructive action.
+            </p>
+
+            <p>
+                Through JYOTIRGAMAYA, we seek to illuminate minds,
+                strengthen capabilities and inspire positive change.
+            </p>
+
+        </div>
+
+        <div class="sikshana-actions">
+
+            <button type="button" class="btn-primary">
+                EXPLORE LEARNING PROGRAMMES
+            </button>
+
+            <p>
+                Do you have knowledge to share, a skill to teach,
+                or expertise that could benefit others?
+            </p>
+
+            <button type="button" class="btn-secondary" id="open-sikshana-form">
+    OFFER TO TEACH OR MENTOR
+</button>
+
+            <p class="sikshana-closing">
+                We welcome educators, professionals, subject experts,
+                trainers and willing learners to help create opportunities
+                for shared growth.
+            </p>
+
+        </div>
+
+<!-- SIKSHANA LEARNING AND MENTORING REGISTRATION POPUP -->
+
+<div class="sikshana-modal" id="sikshana-modal" aria-hidden="true">
+
+    <div class="sikshana-modal-content">
+
+        <button type="button" class="sikshana-modal-close"
+                id="close-sikshana-form" aria-label="Close form">
+            &times;
+        </button>
+
+        <p class="section-label">SIKSHANA · JYOTIRGAMAYA</p>
+
+        <h2>Learning and Knowledge Sharing Registration</h2>
+
+        <p class="sikshana-form-intro">
+            Whether you wish to share knowledge, learn something new
+            or do both, we welcome you to SIKSHANA.
+        </p>
+
+        <form action="/submit-sikshana" method="POST">
+
+            <div class="sikshana-form-group">
+                <label for="sikshana-name">Full name *</label>
+                <input type="text" id="sikshana-name"
+                       name="name" required>
+            </div>
+
+            <div class="sikshana-form-group">
+                <label for="sikshana-email">Email address *</label>
+                <input type="email" id="sikshana-email"
+                       name="email" required>
+            </div>
+
+            <div class="sikshana-form-group">
+                <label for="sikshana-phone">Phone number</label>
+                <input type="tel" id="sikshana-phone"
+                       name="phone">
+            </div>
+
+            <div class="sikshana-form-group">
+                <label for="sikshana-location">Location *</label>
+                <input type="text" id="sikshana-location"
+                       name="location" required>
+            </div>
+
+            <div class="sikshana-form-group">
+                <label>How would you like to participate? *</label>
+
+                <div class="sikshana-radio-group">
+                    <label>
+                        <input type="radio" name="role"
+                               value="Teacher / Mentor" required>
+                        Teacher / Mentor
+                    </label>
+
+                    <label>
+                        <input type="radio" name="role"
+                               value="Learner">
+                        Learner
+                    </label>
+
+                    <label>
+                        <input type="radio" name="role"
+                               value="Both">
+                        Both
+                    </label>
+                </div>
+            </div>
+
+            <div class="sikshana-form-group">
+                <label for="sikshana-expertise">
+                    Subjects or areas of expertise
+                </label>
+                <textarea id="sikshana-expertise"
+                          name="expertise" rows="4"></textarea>
+            </div>
+
+            <div class="sikshana-form-group">
+                <label for="sikshana-qualifications">
+                    Qualifications and professional experience
+                </label>
+                <textarea id="sikshana-qualifications"
+                          name="qualifications" rows="4"></textarea>
+            </div>
+
+            <div class="sikshana-form-group">
+                <label for="sikshana-topics">
+                    Topics you can teach, mentor or wish to learn
+                </label>
+                <textarea id="sikshana-topics"
+                          name="topics" rows="4"></textarea>
+            </div>
+
+            <div class="sikshana-form-group">
+                <label for="sikshana-format">Preferred format *</label>
+                <select id="sikshana-format" name="format" required>
+                    <option value="">Select preferred format</option>
+                    <option value="Online">Online</option>
+                    <option value="In-person">In-person</option>
+                    <option value="Either">Either</option>
+                </select>
+            </div>
+
+            <div class="sikshana-form-group">
+                <label for="sikshana-availability">Availability *</label>
+                <select id="sikshana-availability"
+                        name="availability" required>
+                    <option value="">Select availability</option>
+                    <option value="One-time">One-time</option>
+                    <option value="Occasional">Occasional</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Flexible">Flexible</option>
+                </select>
+            </div>
+
+            <div class="sikshana-form-group">
+                <label for="sikshana-additional">
+                    Additional information
+                </label>
+                <textarea id="sikshana-additional"
+                          name="additional_info" rows="3"></textarea>
+            </div>
+
+            <div class="sikshana-consent">
+                <label>
+                    <input type="checkbox" name="consent"
+                           value="yes" required>
+                    I agree to be contacted about suitable learning
+                    or teaching opportunities. *
+                </label>
+            </div>
+
+            <button type="submit" class="btn-primary">
+                SUBMIT REGISTRATION
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+    </div>
+
+</section>
+
+{% if request.query_params.get('sikshana_submitted') == 'true' %}
+<div class="sikshana-success-message" role="status">
+    Thank you for registering with SIKSHANA.
+    Your registration has been received.
+</div>
+{% endif %}
+
+<!-- ==========================================
+     05. HOW IT ALL COMES TOGETHER
+========================================== -->
+
+<section class="together-section">
+
+    <div class="together-container">
+
+        <p class="section-label">05. HOW IT ALL COMES TOGETHER</p>
+
+        <h2>One Philosophy. Many Ways to Make a Difference.</h2>
+
+        <div class="together-intro">
+            <p>
+                Triple I provides the framework: Idea, Information and
+                Implementation.
+            </p>
+        </div>
+
+        <div class="together-grid">
+
+            <article class="together-card">
+                <span class="together-number">01</span>
+                <h3>TRIPLE I</h3>
+                <p>
+                    Triple I provides the framework: Idea, Information
+                    and Implementation.
+                </p>
+            </article>
+
+            <article class="together-card">
+                <span class="together-number">02</span>
+                <h3>THE COLLECTIVE</h3>
+                <p>
+                    The Collective brings people, skills, knowledge
+                    and resources together.
+                </p>
+            </article>
+
+            <article class="together-card">
+                <span class="together-number">03</span>
+                <h3>SEVA</h3>
+                <p>
+                    SEVA translates compassion into service for people,
+                    communities and the environment.
+                </p>
+            </article>
+
+            <article class="together-card">
+                <span class="together-number">04</span>
+                <h3>SIKSHANA</h3>
+                <p>
+                    SIKSHANA spreads knowledge, strengthens awareness
+                    and empowers people to act.
+                </p>
+            </article>
+
+        </div>
+
+        <div class="together-message">
+
+            <p>
+                These are interconnected dimensions of one shared purpose.
+                Learning reveals new needs. Service generates experience.
+                People working together discover better solutions.
+                Ideas evolve, knowledge grows and collective action
+                creates impact.
+            </p>
+
+            <div class="together-highlight">
+                At every stage, our guiding principle remains the same:
+                a better world is built when people move beyond concern
+                and participate in creating solutions.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     06. BE PART OF THE CHANGE
+========================================== -->
+
+<section class="change-section">
+
+    <div class="change-container">
+
+        <p class="section-label">BE PART OF THE CHANGE</p>
+
+        <h2>What will you contribute to a better world?</h2>
+
+        <div class="change-intro">
+            <p>
+                An idea can begin a movement. Knowledge can empower a
+                community. A helping hand can restore hope. A group of
+                committed people can turn a possibility into reality.
+            </p>
+
+            <p>
+                You do not need to wait until you have more money, more time
+                or greater influence. Begin with what you have and what
+                you can offer.
+            </p>
+        </div>
+
+        <div class="change-contributions">
+
+            <div class="change-item">
+                <span>01</span>
+                <p>Share an idea.</p>
+            </div>
+
+            <div class="change-item">
+                <span>02</span>
+                <p>Join the Collective.</p>
+            </div>
+
+            <div class="change-item">
+                <span>03</span>
+                <p>Volunteer for SEVA.</p>
+            </div>
+
+            <div class="change-item">
+                <span>04</span>
+                <p>Learn and teach through SIKSHANA.</p>
+            </div>
+
+        </div>
+
+        <p class="change-final-message">
+            Help turn goodwill into action.
+        </p>
+
+
+        <div class="change-signature">
+
+            <h3>VASUDHAIVA KUTUMBAKAM</h3>
+
+            <p>One World. One Family. For a Better World.</p>
+
+        </div>
+
     </div>
 
 </section>
@@ -375,5 +1293,143 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+// ==========================================
+// THE COLLECTIVE - CONTRIBUTOR FORM
+// ==========================================
+
+const contributorModal = document.getElementById("contributor-modal");
+const openContributorButton = document.getElementById("open-contributor-form");
+const closeContributorButton = document.getElementById("close-contributor-form");
+
+if (
+    contributorModal &&
+    openContributorButton &&
+    closeContributorButton
+) {
+    function openContributorModal() {
+        contributorModal.classList.add("is-open");
+        contributorModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeContributorModal() {
+        contributorModal.classList.remove("is-open");
+        contributorModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        openContributorButton.focus();
+    }
+
+    openContributorButton.addEventListener(
+        "click",
+        openContributorModal
+    );
+
+    closeContributorButton.addEventListener(
+        "click",
+        closeContributorModal
+    );
+
+    contributorModal.addEventListener("click", function (event) {
+        if (event.target === contributorModal) {
+            closeContributorModal();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (
+            event.key === "Escape" &&
+            contributorModal.classList.contains("is-open")
+        ) {
+            closeContributorModal();
+        }
+    });
+}
+
+// ==========================================
+// SEVA VOLUNTEER FORM
+// ==========================================
+
+const sevaModal = document.getElementById("seva-modal");
+const openSevaButton = document.getElementById("open-seva-form");
+const closeSevaButton = document.getElementById("close-seva-form");
+
+if (sevaModal && openSevaButton && closeSevaButton) {
+
+    function openSevaModal() {
+        sevaModal.classList.add("is-open");
+        sevaModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeSevaModal() {
+        sevaModal.classList.remove("is-open");
+        sevaModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        openSevaButton.focus();
+    }
+
+    openSevaButton.addEventListener("click", openSevaModal);
+    closeSevaButton.addEventListener("click", closeSevaModal);
+
+    sevaModal.addEventListener("click", function(event) {
+        if (event.target === sevaModal) {
+            closeSevaModal();
+        }
+    });
+
+    document.addEventListener("keydown", function(event) {
+        if (
+            event.key === "Escape" &&
+            sevaModal.classList.contains("is-open")
+        ) {
+            closeSevaModal();
+        }
+    });
+}
+
+// ==========================================
+// SIKSHANA REGISTRATION FORM
+// ==========================================
+
+const sikshanaModal = document.getElementById("sikshana-modal");
+const openSikshanaButton = document.getElementById("open-sikshana-form");
+const closeSikshanaButton = document.getElementById("close-sikshana-form");
+
+if (sikshanaModal && openSikshanaButton && closeSikshanaButton) {
+
+    function openSikshanaModal() {
+        sikshanaModal.classList.add("is-open");
+        sikshanaModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeSikshanaModal() {
+        sikshanaModal.classList.remove("is-open");
+        sikshanaModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        openSikshanaButton.focus();
+    }
+
+    openSikshanaButton.addEventListener("click", openSikshanaModal);
+    closeSikshanaButton.addEventListener("click", closeSikshanaModal);
+
+    sikshanaModal.addEventListener("click", function(event) {
+        if (event.target === sikshanaModal) {
+            closeSikshanaModal();
+        }
+    });
+
+    document.addEventListener("keydown", function(event) {
+        if (
+            event.key === "Escape" &&
+            sikshanaModal.classList.contains("is-open")
+        ) {
+            closeSikshanaModal();
+        }
+    });
+}
+
 </script>
 {% endblock %}
