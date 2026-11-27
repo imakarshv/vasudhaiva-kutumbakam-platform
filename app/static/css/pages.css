@@ -3699,3 +3699,179 @@
         padding: 30px 25px;
     }
 }
+/* ==========================================
+   ABOUT US — ADVISORS / MEMBER PROFILES
+========================================== */
+
+.about-members-section {
+    padding: 90px 25px;
+    background: transparent;
+}
+
+.about-members-section .container {
+    max-width: 1150px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.about-members-section > .container > .section-label {
+    text-align: center;
+    color: #9b8139;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.about-members-section > .container > h2 {
+    text-align: center;
+    color: #123d2b;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 65px;
+}
+
+.about-members-section > .container > h2 em {
+    color: #668b53;
+    font-style: italic;
+}
+
+
+/* PROFILE LAYOUT */
+
+.member-profile {
+    display: grid;
+    grid-template-columns: 350px minmax(0, 1fr);
+    align-items: center;
+    gap: 55px;
+    margin-bottom: 80px;
+}
+
+.member-profile:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ALTERNATING PROFILE */
+
+.member-profile-reverse {
+    grid-template-columns: minmax(0, 1fr) 350px;
+}
+
+.member-profile-reverse .member-photo {
+    order: 2;
+}
+
+.member-profile-reverse .member-details {
+    order: 1;
+}
+
+
+/* PHOTO */
+
+.member-photo {
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(155, 129, 57, 0.3);
+    box-shadow: 0 12px 35px rgba(18, 61, 43, 0.1);
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* PROFILE TEXT */
+
+.member-details {
+    padding: 10px 0;
+}
+
+.member-designation {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #9b8139;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.member-details h3 {
+    margin: 0 0 25px;
+    color: #123d2b;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.member-details p {
+    margin: 0 0 18px;
+    color: #626a61;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+.member-details p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .about-members-section {
+        padding: 60px 22px;
+    }
+
+    .about-members-section > .container > h2 {
+        margin-bottom: 45px;
+    }
+
+    .member-profile,
+    .member-profile-reverse {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 60px;
+    }
+
+    .member-profile-reverse .member-photo,
+    .member-profile-reverse .member-details {
+        order: initial;
+    }
+
+    .member-photo {
+        height: 380px;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .member-details h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .member-photo {
+        height: 320px;
+    }
+
+    .member-details p {
+        font-size: 0.92rem;
+        line-height: 1.8;
+    }
+}
